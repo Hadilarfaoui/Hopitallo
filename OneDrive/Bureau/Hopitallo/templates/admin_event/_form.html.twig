@@ -1,0 +1,73 @@
+<div class="form-container">
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+ <div class="form-group">
+    <table>
+<tr>
+
+<td> {{ form_label(form.nom_e,"Nom")  }} 
+ </td>
+<td>  {{ form_widget(form.nom_e , {'attr': {'class': 'inp', 'placeholder': 'Nom'}}) }} 
+</td>  
+<td> {{ form_errors(form.nom_e) }} 
+</td>
+</tr></div>
+
+<div class="form-group">
+<tr>
+
+<td>  {{ form_label(form.photo,"Photo") }} 
+</td> 
+<td>  {{ form_widget(form.photo, {'attr': {'class': 'inp'}}) }}
+</td> 
+
+</tr></div>
+<div class="form-group">
+<tr>
+
+<td> {{ form_label(form.localisation,"Location")  }} 
+ </td>
+<td>  {{ form_widget(form.localisation , {'attr': {'class': 'inp', 'placeholder': 'location'}}) }}
+</td>  
+<td> {{ form_errors(form.localisation) }} 
+</td>
+</tr></div>
+
+<div class="form-group">
+<tr>
+<td> {{ form_label(form.type,"Type")  }} 
+ </td>
+<td>  {{ form_widget(form.type , {'attr': {'class': 'inp', 'placeholder': 'Type'}}) }}
+</td>  
+<td> {{ form_errors(form.type) }} 
+</td>
+</tr></div>
+<div class="form-group">
+<tr>
+<td> {{ form_label(form.description,"Description")  }} 
+ </td>
+<td>  {{ form_widget(form.description , {'attr': {'class': 'inp', 'placeholder': 'description'}}) }}
+</td>  
+<td> {{ form_errors(form.description) }} 
+</td>
+</tr></div>
+<div class="form-group">
+<tr>
+<td> {{ form_label(form.date_event,"Date Event")  }} 
+ </td>
+<td>  {{ form_widget(form.date_event , {'attr': {'class': 'inp'}}) }}
+</td>  
+<td> {{ form_errors(form.date_event) }} 
+</td>
+</tr></div>
+
+<div class="form-group">
+<tr>
+  <td>
+    <button class="btn">{{ button_label|default('Save')}}</button>
+    
+    {{form_end(form)}}</td>
+    
+    
+

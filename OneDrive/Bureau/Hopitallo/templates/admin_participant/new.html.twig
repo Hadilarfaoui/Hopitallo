@@ -1,0 +1,14 @@
+{% extends 'base_Admin.html.twig' %}
+
+{% block title %}New Participant{% endblock %}
+
+{% block body %}
+    <h1>Create new Participant</h1>
+
+    {{ include('admin_participant/_form.html.twig') }}
+    </br>
+   <button class="btn"> <a href="{{ path('app_admin_participant_index') }}">back to list</a></button>
+
+   
+</div>
+{% endblock %}
