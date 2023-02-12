@@ -1,0 +1,22 @@
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       {{ form_label(form.createdAt) }}
+        {{ form_widget(form.createdAt, {'attr': {'class': 'inp'}}) }}
+            </div>
+     <div class="form-group">
+       {{ form_label(form.user) }}
+        {{ form_widget(form.user, {'attr': {'class': 'inp', 'placeholder': 'Prenom'}}) }}
+       
+    </div>
+
+    <div class="form-group">
+       {{ form_label(form.event) }}
+        {{ form_widget(form.event, {'attr': {'class': 'inp', 'placeholder': 'Email'}}) }}
+        
+    </div>
+    
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+

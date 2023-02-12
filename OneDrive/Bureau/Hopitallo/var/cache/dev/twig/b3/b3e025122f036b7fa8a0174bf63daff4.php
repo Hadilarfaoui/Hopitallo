@@ -33,7 +33,7 @@ class __TwigTemplate_c336739c6838145d0e430980e076e803 extends Template
     protected function doGetParent(array $context)
     {
         // line 1
-        return "base_Admin.html.twig";
+        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,7 +45,7 @@ class __TwigTemplate_c336739c6838145d0e430980e076e803 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "admin_participant/edit.html.twig"));
 
-        $this->parent = $this->loadTemplate("base_Admin.html.twig", "admin_participant/edit.html.twig", 1);
+        $this->parent = $this->loadTemplate("base.html.twig", "admin_participant/edit.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -91,18 +91,16 @@ class __TwigTemplate_c336739c6838145d0e430980e076e803 extends Template
         // line 8
         echo twig_include($this->env, $context, "admin_participant/_form.html.twig", ["button_label" => "Update"]);
         echo "
-    </br>
-      <button class=\"btn\"> <a href=\"";
+
+    <a href=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_index");
-        echo "\">back to list</a></button>
-     </br>
+        echo "\">back to list</a>
+
     ";
         // line 12
         echo twig_include($this->env, $context, "admin_participant/_delete_form.html.twig");
         echo "
-
-</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,7 +127,7 @@ class __TwigTemplate_c336739c6838145d0e430980e076e803 extends Template
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base_Admin.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Edit Participant{% endblock %}
 
@@ -137,12 +135,10 @@ class __TwigTemplate_c336739c6838145d0e430980e076e803 extends Template
     <h1>Edit Participant</h1>
 
     {{ include('admin_participant/_form.html.twig', {'button_label': 'Update'}) }}
-    </br>
-      <button class=\"btn\"> <a href=\"{{ path('app_admin_participant_index') }}\">back to list</a></button>
-     </br>
-    {{ include('admin_participant/_delete_form.html.twig') }}
 
-</div>
+    <a href=\"{{ path('app_admin_participant_index') }}\">back to list</a>
+
+    {{ include('admin_participant/_delete_form.html.twig') }}
 {% endblock %}
 ", "admin_participant/edit.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo\\templates\\admin_participant\\edit.html.twig");
     }

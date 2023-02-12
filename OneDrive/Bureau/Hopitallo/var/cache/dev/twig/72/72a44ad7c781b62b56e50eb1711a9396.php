@@ -117,10 +117,10 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
             // line 25
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "nomE", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
-                <td><img style=\"width: 50px;\" src=\"";
+                <td>";
             // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/events/" . twig_get_attribute($this->env, $this->source, $context["event"], "photo", [], "any", false, false, false, 26))), "html", null, true);
-            echo "\" ></td>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "photo", [], "any", false, false, false, 26), "html", null, true);
+            echo "</td>
                 <td>";
             // line 27
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "localisation", [], "any", false, false, false, 27), "html", null, true);
@@ -220,7 +220,7 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
             <tr>
                 <td>{{ event.id }}</td>
                 <td>{{ event.nomE }}</td>
-                <td><img style=\"width: 50px;\" src=\"{{ asset('uploads/events/'~event.photo) }}\" ></td>
+                <td>{{ event.photo }}</td>
                 <td>{{ event.localisation }}</td>
                 <td>{{ event.type }}</td>
                 <td>{{ event.description }}</td>

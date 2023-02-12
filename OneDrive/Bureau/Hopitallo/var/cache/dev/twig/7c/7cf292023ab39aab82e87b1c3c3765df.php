@@ -72,6 +72,6 @@ class __TwigTemplate_2425586110f8f00f46c9e2d970663376 extends Template
     {
         return new Source("{% extends 'base_Admin.html.twig' %}
 
-", "admin_dashboard/index.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo\\templates\\admin_dashboard\\index.html.twig");
+", "admin_dashboard/index.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo--\\templates\\admin_dashboard\\index.html.twig");
     }
 }
