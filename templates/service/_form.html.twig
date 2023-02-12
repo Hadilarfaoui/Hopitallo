@@ -1,0 +1,25 @@
+
+
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       
+        {{ form_widget(form.nom_service, {'attr': {'class': 'inp', 'placeholder': 'Nom'}}) }}
+        {{ form_errors(form.nom_service) }}
+    </div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+</div>
+
+
+
+
+
+
+
+   
+

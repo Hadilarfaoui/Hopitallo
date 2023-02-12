@@ -1,0 +1,49 @@
+
+
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       
+        {{ form_widget(form.nomh, {'attr': {'class': 'inp', 'placeholder': 'Nom'}}) }}
+        {{ form_errors(form.nomh) }}
+    </div>
+
+    <div class="form-group">
+     
+        {{ form_widget(form.adresseh, {'attr': {'class': 'inp', 'placeholder': 'Adresse'}}) }}
+        {{ form_errors(form.adresseh) }}
+    </div>
+
+    <div class="form-group">
+      
+        {{ form_widget(form.numeroh, {'attr': {'class': 'inp', 'placeholder': 'Numero'}}) }}
+        {{ form_errors(form.numeroh) }}
+    </div>
+
+     <div class="form-group">
+        {{ form_label(form.typeh) }}
+        {{ form_widget(form.typeh) }}
+        {{ form_errors(form.typeh) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.image) }}
+        {{ form_widget(form.image) }}
+        {{ form_errors(form.image) }}
+    </div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+</div>
+
+
+
+
+
+
+
+   
+

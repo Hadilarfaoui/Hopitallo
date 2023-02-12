@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Hopitallo-Hopitaux{% endblock %} 
+  {% block nav %}  
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
+                      <a href="{{path('hopital')}}"  class="nav-item nav-link active">Hopitaux</a>
+                      
+                        <a href="hopital_urgence.html" class="nav-item nav-link">Urgence</a>
+                   
+                        <a href="event.html" class="nav-item nav-link">Evenement</a>
+                        <a href="profil.html" class="nav-item nav-link">Profil</a>
+                    </div>
+                </div>
+                {% endblock %}  
+  {% block body %}  
+  <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Medical Packages</h5>
+                <h1 class="display-4">Our Hospitals</h1>
+            </div>
+            <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
+            {% for hopital in hopitals %}
+                <div class="bg-light rounded text-center">
+                    <div class="position-relative">
+                        <img class="img-fluid rounded-top" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt="">
+                     
+                    </div>
+                    <div class="text-center py-5">
+                        <h1>{{ hopital.nomh }} </h1>
+                        <p>{{ hopital.adresseh }}</p>
+                        <p>{{ hopital.numeroh }}</p>
+                        <p>{{ hopital.typeh }}</p>
+                        
+                        <a href="{{path('hopital_details')}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
+                    </div>
+                </div>
+            {% endfor %}
+                
+            </div>
+            
+        </div>
+    </div>
+   {% endblock %}  

@@ -1,0 +1,42 @@
+{% extends 'base_Admin.html.twig' %}
+
+{% block title %}Hopital{% endblock %}
+
+{% block body %}
+    <h1>Hopital</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hopital.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomh</th>
+                <td>{{ hopital.nomh }}</td>
+            </tr>
+            <tr>
+                <th>Adresseh</th>
+                <td>{{ hopital.adresseh }}</td>
+            </tr>
+            <tr>
+                <th>Numeroh</th>
+                <td>{{ hopital.numeroh }}</td>
+            </tr>
+            <tr>
+                <th>Typeh</th>
+                <td>{{ hopital.typeh }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img style="width: 100px;" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt=""> </td>                <td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hopital_index') }}">back to list</a>
+
+    <a href="{{ path('app_hopital_edit', {'id': hopital.id}) }}">edit</a>
+
+    {{ include('hopital/_delete_form.html.twig') }}
+{% endblock %}

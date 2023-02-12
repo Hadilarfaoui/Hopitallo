@@ -1,0 +1,42 @@
+{% extends 'base_Admin.html.twig' %}
+
+{% block title %}Hopital index{% endblock %}
+
+{% block body %}
+    <h1>Hopital index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomh</th>
+                <th>Adresseh</th>
+                <th>Numeroh</th>
+                <th>Typeh</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hopital in hopitals %}
+            <tr>
+                <td>{{ hopital.id }}</td>
+                <td>{{ hopital.nomh }}</td>
+                <td>{{ hopital.adresseh }}</td>
+                <td>{{ hopital.numeroh }}</td>
+                <td>{{ hopital.typeh }}</td>
+                <td><img style="width: 100px;" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt=""> </td>                <td>
+                    <a href="{{ path('app_hopital_show', {'id': hopital.id}) }}">show</a>
+                    <a href="{{ path('app_hopital_edit', {'id': hopital.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hopital_new') }}">Create new</a>
+{% endblock %}
