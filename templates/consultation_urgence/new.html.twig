@@ -1,0 +1,11 @@
+{% extends 'base_Medecin.html.twig' %}
+
+{% block title %}New ConsultationUrgence{% endblock %}
+
+{% block body %}
+    <h1>Create new ConsultationUrgence</h1>
+
+    {{ include('consultation_urgence/_form.html.twig') }}
+
+    <a href="{{ path('app_consultation_urgence_index') }}">back to list</a>
+{% endblock %}

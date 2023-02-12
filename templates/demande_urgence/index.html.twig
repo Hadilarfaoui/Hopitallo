@@ -1,0 +1,39 @@
+{% extends 'base_Medecin.html.twig' %}
+
+{% block title %}DemandeUrgence index{% endblock %}
+
+{% block body %}
+    <h1>DemandeUrgence index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse_u</th>
+                <th>Cas_urgence</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande_urgence in demande_urgences %}
+            <tr>
+                <td>{{ demande_urgence.id }}</td>
+                <td>{{ demande_urgence.adresseU }}</td>
+                <td>{{ demande_urgence.casUrgence }}</td>
+                <td>{{ demande_urgence.date ? demande_urgence.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_demande_urgence_show', {'id': demande_urgence.id}) }}">show</a>
+                    <a href="{{ path('app_demande_urgence_edit', {'id': demande_urgence.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_urgence_new') }}">Create new</a>
+{% endblock %}

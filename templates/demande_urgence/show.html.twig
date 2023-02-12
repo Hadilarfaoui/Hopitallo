@@ -1,0 +1,34 @@
+{% extends 'base_Medecin.html.twig' %}
+
+{% block title %}DemandeUrgence{% endblock %}
+
+{% block body %}
+    <h1>DemandeUrgence</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demande_urgence.id }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_u</th>
+                <td>{{ demande_urgence.adresseU }}</td>
+            </tr>
+            <tr>
+                <th>Cas_urgence</th>
+                <td>{{ demande_urgence.casUrgence }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ demande_urgence.date ? demande_urgence.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_urgence_index') }}">back to list</a>
+
+    <a href="{{ path('app_demande_urgence_edit', {'id': demande_urgence.id}) }}">edit</a>
+
+    {{ include('demande_urgence/_delete_form.html.twig') }}
+{% endblock %}

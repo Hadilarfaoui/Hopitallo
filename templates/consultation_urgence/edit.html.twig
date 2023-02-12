@@ -1,0 +1,13 @@
+{% extends 'base_Medecin.html.twig' %}
+
+{% block title %}Edit ConsultationUrgence{% endblock %}
+
+{% block body %}
+    <h1>Edit ConsultationUrgence</h1>
+
+    {{ include('consultation_urgence/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_consultation_urgence_index') }}">back to list</a>
+
+    {{ include('consultation_urgence/_delete_form.html.twig') }}
+{% endblock %}
