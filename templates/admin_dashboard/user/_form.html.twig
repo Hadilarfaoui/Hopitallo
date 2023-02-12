@@ -1,0 +1,84 @@
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       
+        {{ form_widget(form.nom, {'attr': {'class': 'inp', 'placeholder': 'Nom'}}) }}
+      {{ form_errors(form.nom) }}
+    </div>
+     <div class="form-group">
+       
+        {{ form_widget(form.prenom, {'attr': {'class': 'inp', 'placeholder': 'Prenom'}}) }}
+        {{ form_errors(form.prenom) }}
+    </div>
+
+    <div class="form-group">
+       
+        {{ form_widget(form.email, {'attr': {'class': 'inp', 'placeholder': 'Email'}}) }}
+        {{ form_errors(form.email) }}
+    </div>
+ <div class="form-group">
+        {{ form_label(form.roles) }}
+        {{ form_widget(form.roles) }}
+        {{ form_errors(form.roles) }}
+    </div>
+    <div class="form-group">
+      
+        {{ form_widget(form.password, {'attr': {'class': 'inp', 'placeholder': 'Mot de passe'}}) }}
+        {{ form_errors(form.password) }}
+    </div>
+      <div class="form-group">
+        {{ form_label(form.date_naissance) }}
+        {{ form_widget(form.date_naissance, {'attr': {'class': 'inp', 'placeholder': 'Date de naissance'}}) }}
+        {{ form_errors(form.date_naissance) }}
+    </div>
+     <div class="form-group">
+     
+        {{ form_widget(form.adresse, {'attr': {'class': 'inp', 'placeholder': 'Adresse'}}) }}
+        {{ form_errors(form.adresse) }}
+    </div>
+     <div class="form-group">
+        {{ form_label(form.photo) }}
+        {{ form_widget(form.photo) }}
+        {{ form_errors(form.photo) }}
+    </div>
+    <div class="form-group">
+       
+        {{ form_widget(form.telephone, {'attr': {'class': 'inp', 'placeholder': 'Telephone'}}) }}
+        {{ form_errors(form.telephone) }}
+    </div>
+     <div class="form-group">
+        {{ form_label(form.dossier) }}
+        {{ form_widget(form.dossier) }}
+        {{ form_errors(form.dossier) }}
+    </div>
+    <div class="form-group">
+       
+        {{ form_widget(form.disponible_debut, {'attr': {'class': 'inp' , 'placeholder': 'Disponible debut (medecin)' }}) }}
+        {{ form_errors(form.disponible_debut) }}
+    </div>
+    <div class="form-group">
+       
+        {{ form_widget(form.disponible_fin, {'attr': {'class': 'inp' , 'placeholder': 'Disponible fin (medecin)'}}) }}
+        {{ form_errors(form.disponible_fin) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.service) }}
+        {{ form_widget(form.service) }}
+        {{ form_errors(form.service) }}
+    </div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+</div>
+
+
+
+
+
+
+
+   
+
