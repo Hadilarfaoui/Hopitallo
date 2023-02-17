@@ -3,12 +3,29 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-  <h2>Patient & Admin</h2>
- <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Id</th>
+ <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Utilisateurs</h1>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_user_new') }}">Create new</a>
+                   
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Admin and User</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                               <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Password</th>
@@ -20,16 +37,32 @@
                 <th>Telephone</th>
                 <th>Dossier</th>
                 <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                             <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date_naissance</th>
+                <th>Adresse</th>
+                <th>Photo</th>
+                <th>Telephone</th>
+                <th>Dossier</th>
+                <th>actions</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                      {% for user in users %}
         {% if user.service is null %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles[0] }}</td> <!--user.roles ? user.roles|json_encode : ''-->
-                <td>{{ user.password }}</td>
+                <td>***</td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
@@ -40,8 +73,18 @@
                 <td><a href="{{ asset('upload/'~user.dossier) }}">{% if user.dossier is not null %}{{ user.nom }} Medical document   {% endif %}</a> </td>
               
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
              {% endif %}
@@ -50,17 +93,24 @@
                 <td colspan="14">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-</div>
-<br>
-<br>
-    <h2>Medecin</h2>
- <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Id</th>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+    <br>
+    <br>
+                          <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Medecins</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                        <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Password</th>
@@ -76,15 +126,35 @@
                   <th>Service</th>
                    <th>Hopital</th>
                 <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in medecin %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date_naissance</th>
+                <th>Adresse</th>
+                <th>Photo</th>
+                <th>Telephone</th>
+                <th>Dossier</th>
+                <th>Disponible_debut</th>
+                <th>Disponible_fin</th>
+                  <th>Service</th>
+                   <th>Hopital</th>
+                <th>actions</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for user in medecin %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                  <td>{{ user.roles[0] }}</td> <!--user.roles ? user.roles|json_encode : ''-->
-                <td>{{ user.password }}</td>
+                <td>****</td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
@@ -99,8 +169,19 @@
                  <td>{{ user.service}}</td>
                  <td>{{ user.service.hopital}}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+  <br>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -108,13 +189,41 @@
                 <td colspan="14">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-</div>
-    <a href="{{ path('app_user_new') }}">Create new</a>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+
+<br>
+<br>
+   
+    
     <br>
 <br>
 <br>
 <br>
 
 {% endblock %}
+{% block javascripts  %}
+   <!-- Bootstrap core JavaScript-->
+   <script src="{{asset('Admin_dash/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('Admin_dash/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{asset('Admin_dash/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('Admin_dash/js/sb-admin-2.min.js')}}"></script>
+
+    <!-- Page level plugins -->
+    <script src="{{asset('Admin_dash/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('Admin_dash/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{asset('Admin_dash/js/demo/datatables-demo.js')}}"></script>
+
+    {% endblock %} 

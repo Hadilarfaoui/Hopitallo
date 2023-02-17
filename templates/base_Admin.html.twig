@@ -156,8 +156,11 @@
                             </div>
                         </div>
                     </form>
+
+                  
                 </div>
             </li>
+            <a style="margin-top:15px" href="{{path('app_logout')}}" class="nav-item nav-link">Deconnecter</a>
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
@@ -282,9 +285,9 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ app.user.nom }} {{ app.user.prenom }}</span>
                     <img class="img-profile rounded-circle"
-                        src="img/undraw_profile.svg">
+                        src="{{ asset('upload/'~app.user.photo) }}">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

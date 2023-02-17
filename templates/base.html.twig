@@ -75,7 +75,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><img style="width: 50%;" src="img/logo.png" alt=""></h1>
+                    <h1 class="m-0 text-uppercase text-primary"><img style="width: 50%;" src="{{asset('img/logo.png')}}" alt=""></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -89,7 +89,14 @@
                         <a href="{{path('hopital_urgence')}}" class="nav-item nav-link">Urgence</a>
                    
                         <a href="{{path('event')}}" class="nav-item nav-link">Evenement</a>
+                        {% if app.user %}
                         <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="{{path('app_logout')}}" class="nav-item nav-link">Deconnecter</a>
+                        {% else %}
+                        <a href="{{path('app_login')}}" class="nav-item nav-link">Connecter</a>
+                        <a href="{{path('app_register')}}" class="nav-item nav-link">S'inscrire</a>
+                        {% endif %}
+                 
                     </div>
                 </div>
                 {% endblock %}  

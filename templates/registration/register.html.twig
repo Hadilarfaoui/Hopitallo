@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Hopitallo-Register{% endblock %}   </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    {% block stylesheet %}
+
+    <link href="{{asset('assets/css/registre.css')}}" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+{% block nav_bar %}  
+   
+    {% endblock %}  
+
+    {% block body %}  
+
+    <div class="container">
+	<div class="screen">
+		<div class="screen__content">
+            <br>
+            <br>
+            <br>
+               <img style="width: 300px;" src="{{asset('img/logo.png')}}" alt="">
+       
+        {{ form_start(registrationForm,{'attr': {'novalidate': 'novalidate'}}) }}
+
+        {{ form_widget(registrationForm.email, {'attr': {'class': 'login__input', 'placeholder': 'Email'}}) }}
+      {{ form_errors(registrationForm.email) }}
+<br>
+      {{ form_widget(registrationForm.password, {'attr': {'class': 'login__input', 'placeholder': 'Password'}}) }}
+      {{ form_errors(registrationForm.password , {'attr': {'class': 'error'}}) }}
+<br>
+      {{ form_widget(registrationForm.nom, {'attr': {'class': 'login__input', 'placeholder': 'Votre Nom'}}) }}
+      {{ form_errors(registrationForm.nom) }}
+   <br>
+   {{ form_widget(registrationForm.prenom , {'attr': {'class': 'login__input', 'placeholder': 'Votre Prenom'}}) }}
+      {{ form_errors(registrationForm.prenom ) }}
+<br>
+{{ form_widget(registrationForm.date_naissance , {'attr': {'class': 'login__input', 'placeholder': 'Votre date de naissance'}}) }}
+      {{ form_errors(registrationForm.date_naissance) }}
+       
+          <br>
+          {{ form_widget(registrationForm.adresse , {'attr': {'class': 'login__input', 'placeholder': 'Votre Adresse'}}) }}
+      {{ form_errors(registrationForm.adresse) }}
+      <br>
+      {{ form_widget(registrationForm.photo , {'attr': {'class': 'login__input', 'placeholder': 'Votre Photo'}}) }}
+      {{ form_errors(registrationForm.photo) }}
+      <br>
+      {{ form_widget(registrationForm.telephone , {'attr': {'class': 'login__input', 'placeholder': 'Votre telephone'}}) }}
+      {{ form_errors(registrationForm.telephone) }}
+  <br>   
+        {{ form_row(registrationForm.RGPDConsent , {'attr': {'class': 'login__input'}}) }}
+     
+        <button class="button login__submit" type="submit">
+					<span class="button__text">Register</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>	
+        <a href="{{path('app_login')}}" class="nav-item nav-link">Connecter</a>
+    {{ form_end(registrationForm) }}
+	
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+<!-- partial -->
+    {% endblock %}  
+
+    {% block footer %} 
+   
+    {% endblock %}  
+
+
+    {% block javascripts  %}
+    <!-- JavaScript Libraries -->
+    <script src="{{asset('https://code.jquery.com/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('lib/tempusdominus/js/moment.min.js')}}"></script>
+    <script src="{{asset('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
+    <script src="{{asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{asset('js/main.js')}}"></script>
+    {% endblock %}
+</body>
+
+
+</html>
+
+
+

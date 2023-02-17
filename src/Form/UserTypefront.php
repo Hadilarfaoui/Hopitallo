@@ -14,20 +14,16 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class UserType extends AbstractType
+class UserTypefront extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('email')
-            ->add('roles', ChoiceType::class ,
-            ['required' => true , 'multiple' => false , 'expanded' => false ,
-              'choices' => ['Admin'=>'ROLE_ADMIN' , 'Medecin'=>'ROLE_MEDECIN' ,]
-            ,] 
-            )
             ->add('password' , PasswordType::class)
             ->add('nom')
             ->add('prenom')
+            
             ->add('date_naissance' ,DateType::class,  [
                 'widget' => 'choice',
                 'format' => 'yyyy-MM-dd',
@@ -67,19 +63,9 @@ class UserType extends AbstractType
                     ])
                 ],
             ])
-            ->add('disponible_debut')
-            ->add('disponible_fin')
-            ->add('service')
         ;
 
-    $builder->get('roles')->addModelTransformer(new CallbackTransformer(
-        function ($rolesArray){
-              return count($rolesArray) ? $rolesArray[0] : null;
-        },
-        function ($rolesString){
-            return [$rolesString];
-      }
-    ));
+  
     }
 
     public function configureOptions(OptionsResolver $resolver): void

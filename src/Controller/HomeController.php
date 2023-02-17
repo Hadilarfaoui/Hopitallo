@@ -2,10 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\UserTypefront;
+use App\Repository\UserRepository;
+use App\Entity\Service;
+use Symfony\Component\HttpFoundation\Request;
+use App\Repository\ServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+
+#[Route('/home')] 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
@@ -16,11 +26,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/login', name: 'login')]
-    public function login(): Response
-    {
-        return $this->render('home/login.html.twig');
-    }
+  
 
     #[Route('/hopital', name: 'hopital')]
     public function hopital(): Response
@@ -68,4 +74,71 @@ class HomeController extends AbstractController
     {
         return $this->render('home/profil.html.twig');
     }
+
+    #[Route('/{id}/edit', name: 'app_user_edit_front', methods: ['GET', 'POST'])]
+    public function edit(Request $request, User $user, UserRepository $userRepository ,SluggerInterface $slugger ,UserPasswordHasherInterface $userPasswordHasher): Response
+    {
+        $form = $this->createForm(UserTypefront::class, $user);
+        $form->handleRequest($request);
+        $user->setRoles(['ROLE_USER']);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+               //  /** @var UploadedFile $photo */
+               $photo = $form->get('photo')->getData();
+
+               if ($photo) {
+                   $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+              
+                   $safeFilename = $slugger->slug($originalFilename);
+                   $newFilename = $safeFilename.'-'.uniqid().'.'.$photo->guessExtension();
+  
+                   try {
+                       $photo->move(
+                           $this->getParameter('user_directory'),
+                           $newFilename
+                       );
+                   } catch (FileException $e) {
+                       // ... handle exception if something happens during file upload
+                   }
+   
+                   $user->setPhoto($newFilename);
+                  }
+
+                // dossier
+            $dossier = $form->get('dossier')->getData();
+
+            if ($dossier) {
+                $originalFilename2 = pathinfo($dossier->getClientOriginalName(), PATHINFO_FILENAME);
+           
+                $safeFilename2 = $slugger->slug($originalFilename2);
+                $newFilename2 = $safeFilename2.'-'.uniqid().'.'.$dossier->guessExtension();
+
+                try {
+                    $dossier->move(
+                        $this->getParameter('user_directory'),
+                        $newFilename2
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                $user->setDossier($newFilename2);
+               }   
+                $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('password')->getData()
+                ));
+            $userRepository->save($user, true);
+
+            return $this->redirectToRoute('profil', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('home/user/edit.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
 }
+
+

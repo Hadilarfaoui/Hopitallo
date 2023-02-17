@@ -1,0 +1,114 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+ <div class="container-fluid pt-5">
+        <div class="container">
+            
+         
+       <br>
+      
+          
+      
+       <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">{{app.user.nom}} {{app.user.prenom}}</h5>
+                        <h1 class="display-4">You can edit your profil</h1>
+                    </div>
+                    <p class="mb-5">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                   <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('profil') }}">back to Profil</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-light text-center rounded p-5">
+                        <h1 class="mb-4">Edit Your Profil</h1>
+                        <form>
+                            <div class="row g-3">
+                              
+                                <div class="col-12 col-sm-6">
+                                     
+       
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Nom'}}) }}
+      {{ form_errors(form.nom) }}
+   
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                     {{ form_widget(form.prenom, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Prenom'}}) }}
+        {{ form_errors(form.prenom) }}
+                                </div>
+                                <div class="col-12">
+                                     {{ form_widget(form.email, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Email'}}) }}
+        {{ form_errors(form.email) }}
+                                </div>
+                                 <div class="col-12">
+                                    
+        {{ form_widget(form.password, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Mot de passe'}}) }}
+        {{ form_errors(form.password) }}
+                                </div>
+                                 <div class="col-12">
+                                   {{ form_label(form.date_naissance) }}
+        {{ form_widget(form.date_naissance, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Date de naissance'}}) }}
+        {{ form_errors(form.date_naissance) }}
+                                </div>
+                                 <div class="col-12">
+                                  
+        {{ form_widget(form.adresse, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Adresse'}}) }}
+        {{ form_errors(form.adresse) }}
+                                </div>
+                                   <div class="col-12">
+                                  
+           {{ form_label(form.photo) }}
+        {{ form_widget(form.photo) }}
+        {{ form_errors(form.photo) }}
+                                </div>
+                                   <div class="col-12">
+                                  
+       {{ form_widget(form.telephone, {'attr': {'class': 'form-control bg-white border-0', 'placeholder': 'Telephone'}}) }}
+        {{ form_errors(form.telephone) }}
+                                </div>
+                                  <div class="col-12">
+                                  
+     {{ form_label(form.dossier) }}
+        {{ form_widget(form.dossier) }}
+        {{ form_errors(form.dossier) }}
+                                </div>
+                                 {{ form_row(form._token) }}
+                                <div class="col-12">
+                                  <button class="btn btn-primary w-100 py-3">{{ button_label|default('Save') }}</button>
+                                   
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+        </div>
+    </div>
+
+     
+
+    
+    
+
+  
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+   
+

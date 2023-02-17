@@ -3,31 +3,29 @@
 namespace App\Form;
 
 use App\Entity\User;
-use App\Entity\Service;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class UserType extends AbstractType
+class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('email')
-            ->add('roles', ChoiceType::class ,
-            ['required' => true , 'multiple' => false , 'expanded' => false ,
-              'choices' => ['Admin'=>'ROLE_ADMIN' , 'Medecin'=>'ROLE_MEDECIN' ,]
-            ,] 
-            )
-            ->add('password' , PasswordType::class)
             ->add('nom')
             ->add('prenom')
+           
             ->add('date_naissance' ,DateType::class,  [
                 'widget' => 'choice',
                 'format' => 'yyyy-MM-dd',
@@ -52,34 +50,16 @@ class UserType extends AbstractType
                 ],
             ])
             ->add('telephone')
-            ->add('dossier' , FileType::class, [
-                'label' => 'Dossier Medical (PDF file)',
+            ->add('RGPDConsent', CheckboxType::class, [
                 'mapped' => false,
-                'required' => false,
                 'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid PDF document',
-                    ])
+                    new IsTrue([
+                        'message' => 'You should agree to our terms.',
+                    ]),
                 ],
             ])
-            ->add('disponible_debut')
-            ->add('disponible_fin')
-            ->add('service')
+            ->add('password' , PasswordType::class)
         ;
-
-    $builder->get('roles')->addModelTransformer(new CallbackTransformer(
-        function ($rolesArray){
-              return count($rolesArray) ? $rolesArray[0] : null;
-        },
-        function ($rolesString){
-            return [$rolesString];
-      }
-    ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

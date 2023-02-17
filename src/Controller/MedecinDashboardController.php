@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/medecin')]
 class MedecinDashboardController extends AbstractController
 {
     #[Route('/medecin_dashboard', name: 'app_medecin_dashboard')]
