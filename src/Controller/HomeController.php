@@ -7,6 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Hopital;
 use App\Repository\HopitalRepository;
+use App\Entity\Service;
+use App\Repository\ServiceRepository;
+use App\Repository\UserRepository;
+
 
 class HomeController extends AbstractController
 {
@@ -32,16 +36,20 @@ class HomeController extends AbstractController
     ]);
     }
 
-    #[Route('/hopital_details', name: 'hopital_details')]
-    public function hopital_details(): Response
+    #[Route('/{id}/hopital_details', name: 'hopital_details', methods: ['GET'])]
+    public function hopital_details(ServiceRepository $serviceRepository,Hopital $hopital): Response
     {
-        return $this->render('home/hopital_details.html.twig');
+        return $this->render('home/hopital_details.html.twig',[
+            'hopital' => $hopital,'services' => $serviceRepository->findAll(),
+        ]);
     }
 
-    #[Route('/medecin', name: 'medecin')]
-    public function medecin(): Response
+    #[Route('/{id}/medecin', name: 'medecin', methods: ['GET'])]
+    public function medecin(UserRepository $userRepository,Service $service): Response
     {
-        return $this->render('home/medecin.html.twig');
+        return $this->render('home/medecin.html.twig',[
+            'service' => $service,'medecins' => $userRepository->findAll(),
+        ]);
     }
 
     #[Route('/rdv', name: 'rdv')]

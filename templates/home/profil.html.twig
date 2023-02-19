@@ -39,6 +39,11 @@
   background-color: #333;
   color: #fff;
 }
+.top-cover{
+  background-image:url({{asset('/uploads/profil/profil_bg.png')}});
+ 
+}
+
         .appointment {
           display: flex;
           justify-content: space-between;
@@ -87,19 +92,22 @@
         }
       </style>
     {% endblock %}
-  {% block nav %}  
+
+               {% block nav %}  
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
-                      <a href="{{path('hopital')}}"  class="nav-item nav-link ">Hopitaux</a>
+                        <a href="{{path('hopital')}}"  class="nav-item nav-link ">Hopitaux</a>
                       
-                        <a href="hopital_urgence.html" class="nav-item nav-link">Urgence</a>
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link ">Urgence</a>
                    
-                        <a href="event.html" class="nav-item nav-link">Evenement</a>
-                        <a href="profil.html" class="nav-item nav-link active">Profil</a>
+                        <a href="{{path('event')}}" class="nav-item nav-link ">Evenement</a>
+                        <a href="{{path('profil')}}" class="nav-item nav-link active">Profil</a>
+                        <a href="" class="nav-item nav-link">Deconnecter</a>
                     </div>
                 </div>
-                {% endblock %}  
+                {% endblock %}
+           
   {% block body %} 
    <div class="container-fluid overcover">
         <div class="container profile-box">
@@ -107,11 +115,15 @@
                 <div class="covwe-inn">
                     <div class="row no-margin">
                         <div class="col-md-3 img-c">
-                            <img src="assets/images/profile.jpg" alt="">
+                            <img style="width: 250px; height :270px" src="{{ asset('assets/images/profile.jpg') }}" alt="">
                         </div>
                         <div class="col-md-9 tit-det">
-                            <h2>Angelina Smith / Web Designer</h2>
-                    <br><br><br><br><br>
+                        <br>
+                        <br>
+                        <h2 style="color:white;">Welcome to your profil</h2>
+                            <h2 style="color:white;">Angelina Smith</h2>
+                            <h2 style="color:white;"> </h2>
+                    <br><br><br>
                         </div>
                     </div>
                 </div>
@@ -126,12 +138,10 @@
               <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#resume" role="tab" aria-controls="profile" aria-selected="false">Urgence</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-              </li>
+            <!--  <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="profile" aria-selected="false">Event</a>
+              </li>-->
+             
             </ul>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -143,15 +153,16 @@
 
                         <div class="refer-cov">
                             
-                            <p><b>Nom et prenom</b> Amine ben rejeb</p>
-                            <span><b>Phone :</b>  +00 890 1232 8767</span>
+                            <p><b>Nom et prenom : </b> Amine ben rejeb</p>
+                            <span><b>Email :</b>  Amine ben rejeb@gmail.com</span><br>
+                            <span><b>Phone :</b>  +00 890 1232 8767 </span>
                         </div>
                         <div class="refer-cov">
                            
-                            <p> <b>Adresse</b> Rades </p>
-                            <span><b>Date de naissance :</b> 22 / 04 / 2002</span>
+                            <p> <b>Adresse :</b> Rades </p>
+                            <span><b>Date de naissance :</b>22 / 04 / 2002</span>
                         </div>
-                        
+                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Edit your profil</a>
                       </div>
                       <div class="col-md-8 home-dat">
                          
@@ -162,7 +173,7 @@
                                   <ul class="btn-link">
                                 
                                       <li>
-                                          <a href=""><i class="fas fa-cloud-download-alt"></i> Download Dossiers medical</a>
+                                      <a href=""><i class="fas fa-cloud-download-alt"></i> Download Dossiers medical</a>
                                       </li>
                                   </ul>
                               </div>

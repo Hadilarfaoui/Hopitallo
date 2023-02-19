@@ -4,37 +4,38 @@
   {% block nav %}  
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
+                       <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
                       <a href="{{path('hopital')}}"  class="nav-item nav-link active">Hopitaux</a>
                       
-                        <a href="hopital_urgence.html" class="nav-item nav-link">Urgence</a>
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link">Urgence</a>
                    
-                        <a href="event.html" class="nav-item nav-link">Evenement</a>
-                        <a href="profil.html" class="nav-item nav-link">Profil</a>
+                        <a href="{{path('event')}}" class="nav-item nav-link">Evenement</a>
+                        <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="#" class="nav-item nav-link">Deconnecter</a>
+
                     </div>
                 </div>
                 {% endblock %}  
   {% block body %}  
   <div class="container-fluid py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Medical Packages</h5>
-                <h1 class="display-4">Our Hospitals</h1>
+            <div class="text-center mx-auto mb-5" style="max-width: 400px;">
+                <!--<h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Medical Packages</h5>-->
+                <h1 class="display-4">Nos hôpitaux</h1>
             </div>
             <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
             {% for hopital in hopitals %}
                 <div class="bg-light rounded text-center">
                     <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt="">
+                        <img class="img-fluid rounded-top" style="width: 400px;height: 300px;" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt="">
                      
                     </div>
                     <div class="text-center py-5">
                         <h1>{{ hopital.nomh }} </h1>
-                        <p>{{ hopital.adresseh }}</p>
-                        <p>{{ hopital.numeroh }}</p>
-                        <p>{{ hopital.typeh }}</p>
-                        
-                        <a href="{{path('hopital_details')}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ hopital.adresseh }}</p>
+                        <p><i class="fas fa-phone fa-flip-horizontal"></i> {{ hopital.numeroh }}</p>
+                        <p><i class="fas fa-hospital"></i> {{ hopital.typeh }}</p>
+                        <a href="{{path('hopital_details',{'id': hopital.id})}}" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
                     </div>
                 </div>
             {% endfor %}

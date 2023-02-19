@@ -5,16 +5,18 @@
  {% block nav %}  
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
-                        <a href="{{path('hopital')}}"  class="nav-item nav-link ">Hopitaux</a>
+                       <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
+                      <a href="{{path('hopital')}}"  class="nav-item nav-link">Hopitaux</a>
                       
-                        <a href="hopital_urgence.html" class="nav-item nav-link active">Urgence</a>
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link active">Urgence</a>
                    
-                        <a href="event.html" class="nav-item nav-link">Evenement</a>
-                        <a href="profil.html" class="nav-item nav-link">Profil</a>
+                        <a href="{{path('event')}}" class="nav-item nav-link">Evenement</a>
+                        <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="#" class="nav-item nav-link">Deconnecter</a>
+
                     </div>
                 </div>
-                {% endblock %}  
+                {% endblock %} 
 
 
 {% block body %} 

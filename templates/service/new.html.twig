@@ -3,9 +3,20 @@
 {% block title %}New Service{% endblock %}
 
 {% block body %}
-    <h1>Create new Service</h1>
-
+<div class="card-header py-3">
+ <h6 class="m-0 font-weight-bold text-primary"  style="text-align:center">Ajouter un nouveau service</h6>
+</div>
+</br>
+</br>
     {{ include('service/_form.html.twig') }}
 
-    <a href="{{ path('app_service_index') }}">back to list</a>
+    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_service_index') }}">Back to list</a>
+    </br>
+</br>
 {% endblock %}

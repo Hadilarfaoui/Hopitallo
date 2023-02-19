@@ -21,7 +21,7 @@ class HopitalType extends AbstractType
             ->add('numeroh')
             ->add('typeh',ChoiceType::class ,
             ['required' => true , 'multiple' => false , 'expanded' => false ,
-              'choices' => ['Privé'=>'Privé' , 'Publique'=>'Publique' , ]
+              'choices' => ['Hôpital Privé'=>'Hôpital Privé' , 'Hôpital Publique'=>'Hôpital Publique' , ]
             ,])
             ->add('image', FileType::class, [
                 'label' => 'Image ',

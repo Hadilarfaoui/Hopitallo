@@ -16,9 +16,16 @@ class ServiceController extends AbstractController
 {
     #[Route('/', name: 'app_service_index', methods: ['GET'])]
     public function index(ServiceRepository $serviceRepository): Response
-    {
+    {   
+        $repository = $this->getDoctrine()->getRepository(Service::class);
+
+        $query = $repository->createQueryBuilder('s')
+            ->join('s.hopital', 'h')
+            ->getQuery();
+
+            $result= $query->getResult();
         return $this->render('service/index.html.twig', [
-            'services' => $serviceRepository->findAll(),
+            'services' => $result , //$serviceRepository->findAll()
         ]);
     }
 

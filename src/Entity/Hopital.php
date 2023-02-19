@@ -7,7 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+#[UniqueEntity(fields: ['numeroh'], message: 'Cet hôpital déjà existe')]
 #[ORM\Entity(repositoryClass: HopitalRepository::class)]
 class Hopital
 {
@@ -26,6 +28,8 @@ class Hopital
 
     #[ORM\Column]
     #[Assert\NotBlank(message:"Numero is required")]
+    #[Assert\Length(min:8,minMessage:"Votre numéro contient moins que {{ limit }} chiffres.")]
+    #[Assert\Length(max:8,maxMessage:"Votre numéro contient plus que {{ limit }} chiffres.")]
     private ?int $numeroh = null;
 
     #[ORM\Column(length: 255)]
