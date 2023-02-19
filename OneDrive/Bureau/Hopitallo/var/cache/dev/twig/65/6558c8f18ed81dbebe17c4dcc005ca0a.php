@@ -141,18 +141,30 @@ class __TwigTemplate_817479eb62ebe8066910e1a9a2cce703 extends Template
         </tbody>
     </table>
 
-    <a href=\"";
-        // line 41
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+        // line 47
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_index");
         echo "\">back to list</a>
 
-    <a href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 43, $this->source); })()), "id", [], "any", false, false, false, 43)]), "html", null, true);
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+        // line 55
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 55, $this->source); })()), "id", [], "any", false, false, false, 55)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 45
+        // line 57
         echo twig_include($this->env, $context, "admin_event/_delete_form.html.twig");
         echo "
 ";
@@ -176,7 +188,7 @@ class __TwigTemplate_817479eb62ebe8066910e1a9a2cce703 extends Template
 
     public function getDebugInfo()
     {
-        return array (  156 => 45,  151 => 43,  146 => 41,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  168 => 57,  163 => 55,  152 => 47,  138 => 36,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -221,9 +233,21 @@ class __TwigTemplate_817479eb62ebe8066910e1a9a2cce703 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_admin_event_index') }}\">back to list</a>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_event_index') }}\">back to list</a>
 
-    <a href=\"{{ path('app_admin_event_edit', {'id': event.id}) }}\">edit</a>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_event_edit', {'id': event.id}) }}\">edit</a>
 
     {{ include('admin_event/_delete_form.html.twig') }}
 {% endblock %}

@@ -6590,6 +6590,15 @@
         <argument key="participantRepository" type="service_closure" id="App\Repository\ParticipantRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.YuU2nIV" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="EventRepository" type="service_closure" id="App\Repository\EventRepository"/>
+        <argument key="UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+        <argument key="participantRepository" type="service_closure" id="App\Repository\ParticipantRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.Ui214X2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6603,7 +6612,14 @@
         <argument key="participantRepository" type="service_closure" id="App\Repository\ParticipantRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.US8JKR0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.37VwV6l" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="eventRepository" type="service_closure" id="App\Repository\EventRepository"/>
+        <argument key="participantRepository" type="service_closure" id="App\Repository\ParticipantRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.i7qD.m_" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminEventController::delete" type="service_closure" id=".service_locator.fFHahJ8"/>
@@ -6611,12 +6627,15 @@
         <argument key="App\Controller\AdminEventController::index" type="service_closure" id=".service_locator.Qim_sWz"/>
         <argument key="App\Controller\AdminEventController::new" type="service_closure" id=".service_locator.UYKJCNY"/>
         <argument key="App\Controller\AdminEventController::show" type="service_closure" id=".service_locator.wLYTQQR"/>
+        <argument key="App\Controller\AdminParticipantController::addParticipantToEvent" type="service_closure" id=".service_locator.YuU2nIV"/>
         <argument key="App\Controller\AdminParticipantController::delete" type="service_closure" id=".service_locator.YUeQD7G"/>
         <argument key="App\Controller\AdminParticipantController::edit" type="service_closure" id=".service_locator.YUeQD7G"/>
+        <argument key="App\Controller\AdminParticipantController::eventpart" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController::index" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController::new" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController::show" type="service_closure" id=".service_locator.Ui214X2"/>
-        <argument key="App\Controller\EventController::index" type="service_closure" id=".service_locator.Qim_sWz"/>
+        <argument key="App\Controller\EventController::index" type="service_closure" id=".service_locator.37VwV6l"/>
+        <argument key="App\Controller\EventController::show" type="service_closure" id=".service_locator.wLYTQQR"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6626,12 +6645,15 @@
         <argument key="App\Controller\AdminEventController:index" type="service_closure" id=".service_locator.Qim_sWz"/>
         <argument key="App\Controller\AdminEventController:new" type="service_closure" id=".service_locator.UYKJCNY"/>
         <argument key="App\Controller\AdminEventController:show" type="service_closure" id=".service_locator.wLYTQQR"/>
+        <argument key="App\Controller\AdminParticipantController:addParticipantToEvent" type="service_closure" id=".service_locator.YuU2nIV"/>
         <argument key="App\Controller\AdminParticipantController:delete" type="service_closure" id=".service_locator.YUeQD7G"/>
         <argument key="App\Controller\AdminParticipantController:edit" type="service_closure" id=".service_locator.YUeQD7G"/>
+        <argument key="App\Controller\AdminParticipantController:eventpart" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController:index" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController:new" type="service_closure" id=".service_locator..YVGZja"/>
         <argument key="App\Controller\AdminParticipantController:show" type="service_closure" id=".service_locator.Ui214X2"/>
-        <argument key="App\Controller\EventController:index" type="service_closure" id=".service_locator.Qim_sWz"/>
+        <argument key="App\Controller\EventController:index" type="service_closure" id=".service_locator.37VwV6l"/>
+        <argument key="App\Controller\EventController:show" type="service_closure" id=".service_locator.wLYTQQR"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -7283,12 +7305,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.US8JKR0"/>
+      <argument type="service" id=".service_locator.i7qD.m_"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.US8JKR0"/>
+      <argument type="service" id=".service_locator.i7qD.m_"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8258,7 +8280,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.US8JKR0"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.i7qD.m_"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8282,7 +8304,8 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.l_8sgbs" alias=".service_locator.US8JKR0"/>
+    <service id=".service_locator.uSf28pM" alias=".service_locator.YuU2nIV"/>
+    <service id=".service_locator._sn4W3q" alias=".service_locator.i7qD.m_"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.1m80p3o" alias=".service_locator.YWKQ9_M"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
@@ -8316,8 +8339,10 @@
     <service id=".service_locator.bVwgWT_" alias=".service_locator.VBenu7k"/>
     <service id=".service_locator.aM6V7Wn" alias=".service_locator.fFHahJ8"/>
     <service id=".service_locator.aP2v46J" alias=".service_locator..YVGZja"/>
+    <service id=".service_locator.UoARar1" alias=".service_locator.YuU2nIV"/>
     <service id=".service_locator.ngFQEMC" alias=".service_locator.Ui214X2"/>
     <service id=".service_locator.pWyBUOS" alias=".service_locator.YUeQD7G"/>
+    <service id=".service_locator.4fTRy2Q" alias=".service_locator.37VwV6l"/>
     <service id=".service_locator.A740LBW" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>
     <service id=".service_locator.pFwChgS" alias=".service_locator.UkE3SaZ"/>

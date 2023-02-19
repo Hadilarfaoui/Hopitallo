@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Event{% endblock %}
+{% block nav %}  
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
+                        <a href="{{path('hopital')}}"  class="nav-item nav-link ">Hopitaux</a>
+                      
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link ">Urgence</a>
+                   
+                        <a href="{{path('event')}}" class="nav-item nav-link active">Evenement</a>
+                        <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="" class="nav-item nav-link">Deconnecter</a>
+                    </div>
+                </div>
+                {% endblock %}
+
+{% block body %}
+    <h1>{{ event.nomE }}</h1>
+
+    <table class="table">
+        
+            
+            <tr>
+                <td>Photo</td>
+                <td><img style="width: 60px;" src="{{ asset('uploads/events/'~event.photo) }}" ></td>
+            </tr>
+            <tr>
+                <td>Localisation</td>
+                <td>{{ event.localisation }}</td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>{{ event.type }}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <td>Date_event</td>
+                <td>{{ event.dateEvent ? event.dateEvent|date('Y-m-d') : '' }}</td>
+            </tr>
+        
+    </table>
+        <a href="{{ path('event_index') }}">back to EVENT Home</a>
+    {% endblock %}

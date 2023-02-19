@@ -3,9 +3,24 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
-
-    <table class="table">
+<div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary"  style="text-align:center">Event index</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+    <div>
+    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_event_new') }}">Create new</a>
+    </br>
+    </br>
+    </div>
+    <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,8 +44,27 @@
                 <td>{{ event.description }}</td>
                 <td>{{ event.dateEvent ? event.dateEvent|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('app_admin_event_edit', {'id': event.id}) }}">edit</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_participant_index1', {'ide': event.id}) }}">Participant</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_event_show', {'id': event.id}) }}">show</a>
+                    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_event_edit', {'id': event.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -40,6 +74,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div></div>
 
-    <a href="{{ path('app_admin_event_new') }}">Create new</a>
+    
 {% endblock %}

@@ -3,8 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Participant;
+use App\Entity\User;
+use App\Entity\Event;
 use App\Form\ParticipantType;
+use App\Repository\EventRepository;
 use App\Repository\ParticipantRepository;
+use App\Repository\UserRepository;
+use DateTimeImmutable;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,12 +22,35 @@ class AdminParticipantController extends AbstractController
     #[Route('/', name: 'app_admin_participant_index', methods: ['GET'])]
     public function index(ParticipantRepository $participantRepository): Response
     {
+        
         return $this->render('admin_participant/index.html.twig', [
             'participants' => $participantRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_admin_participant_new', methods: ['GET', 'POST'])]
+
+    #[Route('/event/{id}/{idu}/add-participant', name: 'event_add_participant', methods: ['GET', 'POST'])]
+    public function addParticipantToEvent(ManagerRegistry $doctrine,UserRepository $UserRepository ,EventRepository $EventRepository,
+                                         ParticipantRepository $participantRepository,Request $request,$id,$idu)
+    {
+     $user = $UserRepository->find($idu);
+    $event= $EventRepository->find($id);
+     // Or retrieve the participant you want to add
+    
+    $participant = new Participant();
+    $participant->setUser($user); // Or set the participant you want to add
+    $participant->setEvent($event);
+    $participant->setCreatedAt(new DateTimeImmutable());
+
+    $entityManager = $doctrine->getManager();
+    $entityManager->persist($participant);
+    $entityManager->flush();
+    
+   // return $this->redirectToRoute('app_admin_event_show', ['id' => $event->getId()]);
+    return $this->redirectToRoute('event');
+    }
+
+    #[Route('/new', name: 'app_admin_participant_new')]
     public function new(Request $request, ParticipantRepository $participantRepository): Response
     {
         $participant = new Participant();
@@ -30,7 +59,6 @@ class AdminParticipantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $participantRepository->save($participant, true);
-
             return $this->redirectToRoute('app_admin_participant_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -75,4 +103,28 @@ class AdminParticipantController extends AbstractController
 
         return $this->redirectToRoute('app_admin_participant_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    // #[Route('/parti-evnt{id}', name: 'app_admin_event_show_parti', methods: ['GET'])]
+    // public function indexp(ParticipantRepository $participantRepository,EventRepository $eventRepository,$id): Response
+    // {
+    //     $event= $eventRepository->find($id);
+        
+    //     return $this->render('admin_participant/index.html.twig', [
+    //         'participants' => $participantRepository->Participants($event),
+    //     ]);
+    // }
+    #[Route('/participant/event{ide}', name: 'app_admin_participant_index1', methods: ['GET'])]
+    public function eventpart (ParticipantRepository $participantRepository,$ide): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $event = $entityManager->getRepository(Event::class)->find($ide);
+        $part = $entityManager->getRepository(Participant::class)->findBy(['event'=>$event]);
+        return $this->render('admin_participant/index.html.twig', [
+            'participants' => $part,
+        ]);
+    }
+
+
+   
+   
 }

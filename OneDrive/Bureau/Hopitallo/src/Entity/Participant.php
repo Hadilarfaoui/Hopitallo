@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ParticipantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ParticipantRepository::class)]
 class Participant
@@ -14,6 +15,7 @@ class Participant
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\GreaterThan("today", message:"La date doit être supérieure à la date actuelle")]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'parti')]

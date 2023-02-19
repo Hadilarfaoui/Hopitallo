@@ -63,35 +63,35 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
     ";
         // line 11
         $this->displayBlock('stylesheet', $context, $blocks);
-        // line 33
+        // line 35
         echo "</head>
 
 <body>
 ";
-        // line 36
+        // line 38
         $this->displayBlock('nav_bar', $context, $blocks);
-        // line 100
+        // line 103
         echo "  
 
     ";
-        // line 102
+        // line 105
         $this->displayBlock('body', $context, $blocks);
-        // line 413
+        // line 416
         echo "  
 
     ";
-        // line 415
+        // line 418
         $this->displayBlock('footer', $context, $blocks);
-        // line 481
+        // line 484
         echo "  
 
     <!-- Back to Top -->
     <a href=\"#\" class=\"btn btn-lg btn-primary btn-lg-square back-to-top\"><i class=\"bi bi-arrow-up\"></i></a>
 
     ";
-        // line 486
+        // line 489
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 500
+        // line 503
         echo "</body>
 
 
@@ -182,7 +182,9 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
         // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-    ";
+  
+         
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -191,7 +193,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     }
 
-    // line 36
+    // line 38
     public function block_nav_bar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -208,9 +210,9 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
             <div class=\"row\">
                 <div class=\"col-md-6 text-center text-lg-start mb-2 mb-lg-0\">
                     <div class=\"d-inline-flex align-items-center\">
-                        <a class=\"text-decoration-none text-body pe-3\" href=\"\"><i class=\"bi bi-telephone me-2\"></i>+012 345 6789</a>
+                        <a class=\"text-decoration-none text-body pe-3\" href=\"\"><i class=\"bi bi-telephone me-2\"></i>+216 55 373 662</a>
                         <span class=\"text-body\">|</span>
-                        <a class=\"text-decoration-none text-body px-3\" href=\"\"><i class=\"bi bi-envelope me-2\"></i>info@example.com</a>
+                        <a class=\"text-decoration-none text-body px-3\" href=\"\"><i class=\"bi bi-envelope me-2\"></i>hopitallo@gmail.com</a>
                     </div>
                 </div>
                 <div class=\"col-md-6 text-center text-lg-end\">
@@ -242,16 +244,19 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
     <div class=\"container-fluid sticky-top bg-white shadow-sm\">
         <div class=\"container\">
             <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0\">
-                <a href=\"index.html\" class=\"navbar-brand\">
+                <a href=\"";
+        // line 79
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        echo "\" class=\"navbar-brand\">
                     <h1 class=\"m-0 text-uppercase text-primary\"><img style=\"width: 50%;\" src=\"img/logo.png\" alt=\"\"></h1>
                 </a>
                 <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
                     <span class=\"navbar-toggler-icon\"></span>
                 </button>
                 ";
-        // line 83
+        // line 85
         $this->displayBlock('nav', $context, $blocks);
-        // line 95
+        // line 98
         echo "  
             </nav>
         </div>
@@ -266,7 +271,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     }
 
-    // line 83
+    // line 85
     public function block_nav($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -279,25 +284,29 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
         echo "  
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto py-0\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Home</a>
-                      <a href=\"";
-        // line 87
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hopital");
-        echo "\"  class=\"nav-item nav-link\">Hopitaux</a>
-                      
+                        <a href=\"";
+        // line 88
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        echo "\" class=\"nav-item nav-link active\">Home</a>
                         <a href=\"";
         // line 89
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hopital_urgence");
-        echo "\" class=\"nav-item nav-link\">Urgence</a>
-                   
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hopital");
+        echo "\"  class=\"nav-item nav-link \">Hopitaux</a>
+                      
                         <a href=\"";
         // line 91
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event");
-        echo "\" class=\"nav-item nav-link\">Evenement</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hopital_urgence");
+        echo "\" class=\"nav-item nav-link \">Urgence</a>
+                   
                         <a href=\"";
-        // line 92
+        // line 93
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event");
+        echo "\" class=\"nav-item nav-link \">Evenement</a>
+                        <a href=\"";
+        // line 94
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("profil");
         echo "\" class=\"nav-item nav-link\">Profil</a>
+                        <a href=\"\" class=\"nav-item nav-link\">Deconnecter</a>
                     </div>
                 </div>
                 ";
@@ -309,7 +318,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     }
 
-    // line 102
+    // line 105
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -639,7 +648,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     }
 
-    // line 415
+    // line 418
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -724,7 +733,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     }
 
-    // line 486
+    // line 489
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -734,44 +743,44 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 487
+        // line 490
         echo "    <!-- JavaScript Libraries -->
     <script src=\"";
-        // line 488
+        // line 491
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://code.jquery.com/jquery-3.4.1.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 489
+        // line 492
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 490
+        // line 493
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/easing/easing.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 491
+        // line 494
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/waypoints/waypoints.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 492
+        // line 495
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/owlcarousel/owl.carousel.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 493
+        // line 496
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/tempusdominus/js/moment.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 494
+        // line 497
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/tempusdominus/js/moment-timezone.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 495
+        // line 498
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Template Javascript -->
     <script src=\"";
-        // line 498
+        // line 501
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
     ";
@@ -790,7 +799,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     public function getDebugInfo()
     {
-        return array (  775 => 498,  769 => 495,  765 => 494,  761 => 493,  757 => 492,  753 => 491,  749 => 490,  745 => 489,  741 => 488,  738 => 487,  728 => 486,  643 => 415,  313 => 102,  299 => 92,  295 => 91,  290 => 89,  285 => 87,  270 => 83,  255 => 95,  253 => 83,  195 => 36,  183 => 31,  177 => 28,  171 => 25,  167 => 24,  161 => 21,  157 => 20,  151 => 17,  147 => 16,  141 => 13,  138 => 12,  128 => 11,  109 => 6,  95 => 500,  93 => 486,  86 => 481,  84 => 415,  80 => 413,  78 => 102,  74 => 100,  72 => 36,  67 => 33,  65 => 11,  57 => 6,  50 => 1,);
+        return array (  784 => 501,  778 => 498,  774 => 497,  770 => 496,  766 => 495,  762 => 494,  758 => 493,  754 => 492,  750 => 491,  747 => 490,  737 => 489,  652 => 418,  322 => 105,  307 => 94,  303 => 93,  298 => 91,  293 => 89,  289 => 88,  275 => 85,  260 => 98,  258 => 85,  249 => 79,  197 => 38,  183 => 31,  177 => 28,  171 => 25,  167 => 24,  161 => 21,  157 => 20,  151 => 17,  147 => 16,  141 => 13,  138 => 12,  128 => 11,  109 => 6,  95 => 503,  93 => 489,  86 => 484,  84 => 418,  80 => 416,  78 => 105,  74 => 103,  72 => 38,  67 => 35,  65 => 11,  57 => 6,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -826,7 +835,9 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
 
     <!-- Template Stylesheet -->
     <link href=\"{{asset('css/style.css')}}\" rel=\"stylesheet\">
-    {% endblock %}
+  
+         
+        {% endblock %}
 </head>
 
 <body>
@@ -837,9 +848,9 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
             <div class=\"row\">
                 <div class=\"col-md-6 text-center text-lg-start mb-2 mb-lg-0\">
                     <div class=\"d-inline-flex align-items-center\">
-                        <a class=\"text-decoration-none text-body pe-3\" href=\"\"><i class=\"bi bi-telephone me-2\"></i>+012 345 6789</a>
+                        <a class=\"text-decoration-none text-body pe-3\" href=\"\"><i class=\"bi bi-telephone me-2\"></i>+216 55 373 662</a>
                         <span class=\"text-body\">|</span>
-                        <a class=\"text-decoration-none text-body px-3\" href=\"\"><i class=\"bi bi-envelope me-2\"></i>info@example.com</a>
+                        <a class=\"text-decoration-none text-body px-3\" href=\"\"><i class=\"bi bi-envelope me-2\"></i>hopitallo@gmail.com</a>
                     </div>
                 </div>
                 <div class=\"col-md-6 text-center text-lg-end\">
@@ -871,7 +882,7 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
     <div class=\"container-fluid sticky-top bg-white shadow-sm\">
         <div class=\"container\">
             <nav class=\"navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0\">
-                <a href=\"index.html\" class=\"navbar-brand\">
+                <a href=\"{{path('app_home')}}\" class=\"navbar-brand\">
                     <h1 class=\"m-0 text-uppercase text-primary\"><img style=\"width: 50%;\" src=\"img/logo.png\" alt=\"\"></h1>
                 </a>
                 <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarCollapse\">
@@ -880,13 +891,14 @@ class __TwigTemplate_c23238c4c61be44d4dbd3d70075c70cf extends Template
                 {% block nav %}  
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto py-0\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Home</a>
-                      <a href=\"{{path('hopital')}}\"  class=\"nav-item nav-link\">Hopitaux</a>
+                        <a href=\"{{path('app_home')}}\" class=\"nav-item nav-link active\">Home</a>
+                        <a href=\"{{path('hopital')}}\"  class=\"nav-item nav-link \">Hopitaux</a>
                       
-                        <a href=\"{{path('hopital_urgence')}}\" class=\"nav-item nav-link\">Urgence</a>
+                        <a href=\"{{path('hopital_urgence')}}\" class=\"nav-item nav-link \">Urgence</a>
                    
-                        <a href=\"{{path('event')}}\" class=\"nav-item nav-link\">Evenement</a>
+                        <a href=\"{{path('event')}}\" class=\"nav-item nav-link \">Evenement</a>
                         <a href=\"{{path('profil')}}\" class=\"nav-item nav-link\">Profil</a>
+                        <a href=\"\" class=\"nav-item nav-link\">Deconnecter</a>
                     </div>
                 </div>
                 {% endblock %}  

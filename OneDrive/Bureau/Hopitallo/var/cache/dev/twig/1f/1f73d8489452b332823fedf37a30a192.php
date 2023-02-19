@@ -65,24 +65,24 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
     ";
         // line 15
         $this->displayBlock('stylesheet', $context, $blocks);
-        // line 25
+        // line 26
         echo "
 </head>
 
 <body id=\"page-top\">
 ";
-        // line 29
+        // line 30
         $this->displayBlock('nav_bar', $context, $blocks);
-        // line 649
+        // line 663
         echo "  
  
     
    
 
     ";
-        // line 654
+        // line 668
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 672
+        // line 686
         echo " 
 </body>
 
@@ -129,20 +129,24 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
         echo "    <link href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/vendor/fontawesome-free/css/all.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"";
+        // line 17
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"), "html", null, true);
+        echo "\" crossorigin=\"anonymous\">
     <link
         href=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"), "html", null, true);
         echo "\"
         rel=\"stylesheet\">
 
     <!-- Custom styles for this template-->
     <link href=\"";
-        // line 22
+        // line 23
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/css/sb-admin-2.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-    <link href=\"";
-        // line 23
+     <link href=\"";
+        // line 24
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/css/form.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
     ";
@@ -154,7 +158,7 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
     }
 
-    // line 29
+    // line 30
     public function block_nav_bar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -172,9 +176,11 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
         <ul class=\"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion\" id=\"accordionSidebar\">
 
             <!-- Sidebar - Brand -->
-            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"index.html\">
-              
-                <div class=\"sidebar-brand-text mx-3\">Espace Admin</div>
+            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"\">
+            <img style=\"width: 80%; background-color:white;\" src=\"";
+        // line 39
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("./img/logo.png"), "html", null, true);
+        echo "\" alt=\"\">
             </a>
 
             <!-- Divider -->
@@ -182,10 +188,11 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
             <!-- Nav Item - Dashboard -->
             <li class=\"nav-item active\">
-                <a class=\"nav-link\" href=\"index.html\">
+                <a class=\"nav-link\" href=\"\">
                     <i class=\"fas fa-fw fa-tachometer-alt\"></i>
                     <span>Dashboard</span></a>
             </li>
+            
 
             <!-- Divider -->
             <hr class=\"sidebar-divider\">
@@ -197,37 +204,38 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseTwo\"
-                    aria-expanded=\"true\" aria-controls=\"collapseTwo\">
-                    <i class=\"fas fa-fw fa-cog\"></i>
-                    <span>Components</span>
-                </a>
-                <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">
-                    <div class=\"bg-white py-2 collapse-inner rounded\">
-                        <h6 class=\"collapse-header\">Custom Components:</h6>
-                        <a class=\"collapse-item\" href=\"";
-        // line 70
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("utilisateur_admin");
-        echo "\">Gerer utilisateur </a>
-                        <a class=\"collapse-item\" href=\"";
-        // line 71
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("hopitaux_admin");
-        echo "\">Gerer Hopitaux</a>
-                        <a class=\"collapse-item\" href=\"";
-        // line 72
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("service_admin");
-        echo "\">Gerer Services</a>
-                        <a class=\"collapse-item\" href=\"";
-        // line 73
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("event_admin");
-        echo "\">Gerer Evenement</a>
-                        <a class=\"collapse-item\" href=\"";
-        // line 74
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("participant_admin");
-        echo "\">Gerer Participant</a>
-                        
-                    </div>
-                </div>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fas fa fa-user\"></i>
+                    <span>Gerer utilisateur</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fa fa-hospital\"></i>
+                    <span>Gerer Hopitaux</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fa fa-stethoscope\"></i>
+                    <span>Gerer Services</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"";
+        // line 79
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_index");
+        echo "\">
+                    <i class=\"fa fa-heart\"></i>
+                    <span>Gerer Evenement</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"";
+        // line 84
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_index");
+        echo "\">
+                    <i class=\"fa fa-users\"></i>
+                    <span>Gerer Participant</span></a>
+            </li>
+               
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -308,8 +316,11 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
                             </div>
                         </div>
                     </form>
+
+                  
                 </div>
             </li>
+            <a style=\"margin-top:15px\" href=\"\" class=\"nav-item nav-link\">Deconnecter</a>
 
             <!-- Nav Item - Alerts -->
             <li class=\"nav-item dropdown no-arrow mx-1\">
@@ -434,9 +445,9 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
             <li class=\"nav-item dropdown no-arrow\">
                 <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\"
                     data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Douglas McGee</span>
+                    <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Admin</span>
                     <img class=\"img-profile rounded-circle\"
-                        src=\"img/undraw_profile.svg\">
+                        src=\"\">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class=\"dropdown-menu dropdown-menu-right shadow animated--grow-in\"
@@ -467,9 +478,9 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
     <!-- *******************************   eli bech yetbadel         ********************************  -->
     ";
-        // line 316
+        // line 330
         $this->displayBlock('body', $context, $blocks);
-        // line 645
+        // line 659
         echo " 
     
     </div>
@@ -483,7 +494,7 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
     }
 
-    // line 316
+    // line 330
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -831,7 +842,7 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
     }
 
-    // line 654
+    // line 668
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -841,42 +852,42 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 655
+        // line 669
         echo "    <!-- Bootstrap core JavaScript-->
     <script src=\"";
-        // line 656
+        // line 670
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/vendor/jquery/jquery.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 657
+        // line 671
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Core plugin JavaScript-->
     <script src=\"";
-        // line 660
+        // line 674
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/vendor/jquery-easing/jquery.easing.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Custom scripts for all pages-->
     <script src=\"";
-        // line 663
+        // line 677
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/js/sb-admin-2.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Page level plugins -->
     <script src=\"";
-        // line 666
+        // line 680
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/vendor/chart.js/Chart.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Page level custom scripts -->
     <script src=\"";
-        // line 669
+        // line 683
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/js/demo/chart-area-demo.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 670
+        // line 684
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Admin_dash/js/demo/chart-pie-demo.js"), "html", null, true);
         echo "\"></script>
 
@@ -896,7 +907,7 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
     public function getDebugInfo()
     {
-        return array (  880 => 670,  876 => 669,  870 => 666,  864 => 663,  858 => 660,  852 => 657,  848 => 656,  845 => 655,  835 => 654,  487 => 316,  473 => 645,  471 => 316,  226 => 74,  222 => 73,  218 => 72,  214 => 71,  210 => 70,  158 => 29,  146 => 23,  142 => 22,  135 => 18,  129 => 16,  119 => 15,  100 => 12,  86 => 672,  84 => 654,  77 => 649,  75 => 29,  69 => 25,  67 => 15,  61 => 12,  48 => 1,);
+        return array (  891 => 684,  887 => 683,  881 => 680,  875 => 677,  869 => 674,  863 => 671,  859 => 670,  856 => 669,  846 => 668,  498 => 330,  484 => 659,  482 => 330,  233 => 84,  225 => 79,  182 => 39,  162 => 30,  150 => 24,  146 => 23,  139 => 19,  134 => 17,  129 => 16,  119 => 15,  100 => 12,  86 => 686,  84 => 668,  77 => 663,  75 => 30,  69 => 26,  67 => 15,  61 => 12,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -917,13 +928,14 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
     <!-- Custom fonts for this template-->
     {% block stylesheet %}
     <link href=\"{{asset('Admin_dash/vendor/fontawesome-free/css/all.min.css')}}\" rel=\"stylesheet\" type=\"text/css\">
+    <link href=\"{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD')}}\" crossorigin=\"anonymous\">
     <link
         href=\"{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}\"
         rel=\"stylesheet\">
 
     <!-- Custom styles for this template-->
     <link href=\"{{asset('Admin_dash/css/sb-admin-2.min.css')}}\" rel=\"stylesheet\">
-    <link href=\"{{asset('Admin_dash/css/form.css')}}\" rel=\"stylesheet\">
+     <link href=\"{{asset('Admin_dash/css/form.css')}}\" rel=\"stylesheet\">
     {% endblock %}
 
 </head>
@@ -937,9 +949,8 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
         <ul class=\"navbar-nav bg-gradient-primary sidebar sidebar-dark accordion\" id=\"accordionSidebar\">
 
             <!-- Sidebar - Brand -->
-            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"index.html\">
-              
-                <div class=\"sidebar-brand-text mx-3\">Espace Admin</div>
+            <a class=\"sidebar-brand d-flex align-items-center justify-content-center\" href=\"\">
+            <img style=\"width: 80%; background-color:white;\" src=\"{{asset('./img/logo.png')}}\" alt=\"\">
             </a>
 
             <!-- Divider -->
@@ -947,10 +958,11 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
             <!-- Nav Item - Dashboard -->
             <li class=\"nav-item active\">
-                <a class=\"nav-link\" href=\"index.html\">
+                <a class=\"nav-link\" href=\"\">
                     <i class=\"fas fa-fw fa-tachometer-alt\"></i>
                     <span>Dashboard</span></a>
             </li>
+            
 
             <!-- Divider -->
             <hr class=\"sidebar-divider\">
@@ -962,22 +974,32 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" href=\"#\" data-toggle=\"collapse\" data-target=\"#collapseTwo\"
-                    aria-expanded=\"true\" aria-controls=\"collapseTwo\">
-                    <i class=\"fas fa-fw fa-cog\"></i>
-                    <span>Components</span>
-                </a>
-                <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordionSidebar\">
-                    <div class=\"bg-white py-2 collapse-inner rounded\">
-                        <h6 class=\"collapse-header\">Custom Components:</h6>
-                        <a class=\"collapse-item\" href=\"{{path('utilisateur_admin')}}\">Gerer utilisateur </a>
-                        <a class=\"collapse-item\" href=\"{{path('hopitaux_admin')}}\">Gerer Hopitaux</a>
-                        <a class=\"collapse-item\" href=\"{{path('service_admin')}}\">Gerer Services</a>
-                        <a class=\"collapse-item\" href=\"{{path('event_admin')}}\">Gerer Evenement</a>
-                        <a class=\"collapse-item\" href=\"{{path('participant_admin')}}\">Gerer Participant</a>
-                        
-                    </div>
-                </div>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fas fa fa-user\"></i>
+                    <span>Gerer utilisateur</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fa fa-hospital\"></i>
+                    <span>Gerer Hopitaux</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"\">
+                    <i class=\"fa fa-stethoscope\"></i>
+                    <span>Gerer Services</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"{{path('app_admin_event_index')}}\">
+                    <i class=\"fa fa-heart\"></i>
+                    <span>Gerer Evenement</span></a>
+            </li>
+            <li class=\"nav-item active\">
+                <a class=\"nav-link\" href=\"{{path('app_admin_participant_index')}}\">
+                    <i class=\"fa fa-users\"></i>
+                    <span>Gerer Participant</span></a>
+            </li>
+               
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -1058,8 +1080,11 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
                             </div>
                         </div>
                     </form>
+
+                  
                 </div>
             </li>
+            <a style=\"margin-top:15px\" href=\"\" class=\"nav-item nav-link\">Deconnecter</a>
 
             <!-- Nav Item - Alerts -->
             <li class=\"nav-item dropdown no-arrow mx-1\">
@@ -1184,9 +1209,9 @@ class __TwigTemplate_76fae8bfdbf2dc68ffac7dc2d6e2a179 extends Template
             <li class=\"nav-item dropdown no-arrow\">
                 <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"userDropdown\" role=\"button\"
                     data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Douglas McGee</span>
+                    <span class=\"mr-2 d-none d-lg-inline text-gray-600 small\">Admin</span>
                     <img class=\"img-profile rounded-circle\"
-                        src=\"img/undraw_profile.svg\">
+                        src=\"\">
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class=\"dropdown-menu dropdown-menu-right shadow animated--grow-in\"

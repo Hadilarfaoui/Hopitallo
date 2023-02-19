@@ -3,10 +3,26 @@
 {% block title %}Participant index{% endblock %}
 
 {% block body %}
-    <h1>Participant index</h1>
-
-    <table class="table">
-        <thead>
+<div class="card shadow mb-4">
+                        <div class="card-header py-3"  >
+                            <p class="m-0 font-weight-bold text-primary" style="text-align:center">Participant index</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+    <div>
+     <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_participant_new') }}">Create new</a>
+    </br>
+    </br>
+    </div>
+    
+    <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+       <thead>
             <tr>
                 <th>Id</th>
                 <th>CreatedAt</th>
@@ -23,9 +39,15 @@
                 <td>{{ participant.user }}</td>
                 <td>{{ participant.event }}</td>
                 <td>
-                    <a href="{{ path('app_admin_participant_show', {'id': participant.id}) }}">show</a>
-                    <a href="{{ path('app_admin_participant_edit', {'id': participant.id}) }}">edit</a>
-                </td>
+                     <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_participant_show', {'id': participant.id}) }}">show</a>
+                    {# <button class="rounded-circle border-0"> <a href="{{ path('app_admin_participant_edit', {'id': participant.id}) }}">edit</a></button>
+               #} </td> 
             </tr>
         {% else %}
             <tr>
@@ -35,5 +57,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_participant_new') }}">Create new</a>
+    
 {% endblock %}

@@ -18,9 +18,15 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_participant_index') }}">back to list</a>
+    <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_participant_index') }}">back to list</a>
 
-    <a href="{{ path('app_admin_participant_edit', {'id': participant.id}) }}">edit</a>
+    {# <a href="{{ path('app_admin_participant_edit', {'id': participant.id}) }}">edit</a> #}
 
     {{ include('admin_participant/_delete_form.html.twig') }}
 {% endblock %}

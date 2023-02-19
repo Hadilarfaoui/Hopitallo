@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use App\Repository\ParticipantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,7 +46,7 @@ class AdminEventController extends AbstractController
                         $newFilename
                     );
                 }catch (FileException $e){
-
+                     print('no photo');
                 }$event->setPhoto($newFilename);
             }
             
@@ -115,4 +116,6 @@ class AdminEventController extends AbstractController
 
         return $this->redirectToRoute('app_admin_event_index', [], Response::HTTP_SEE_OTHER);
     }
+ 
+  
 }

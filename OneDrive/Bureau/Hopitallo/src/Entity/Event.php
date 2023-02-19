@@ -38,14 +38,16 @@ class Event
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\GreaterThan("today", message:"La date doit être supérieure à la date actuelle")]
     #[Assert\NotBlank(message:"Date is required")]
+    
         private ?\DateTimeInterface $date_event = null;
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Participant::class)]
     private Collection $participate;
 
     public function __construct()
-    {
+    {   
         $this->participate = new ArrayCollection();
     }
 
@@ -156,6 +158,6 @@ class Event
         return $this;
     }
     public function __toString(){
-        return  $this->getNomE(); // Remplacer champ par une propriété "string" de l'entité
+        return  (String)$this->getId(); // Remplacer champ par une propriété "string" de l'entité
     }
 }

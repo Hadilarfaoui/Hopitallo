@@ -3,11 +3,17 @@
 {% block title %}New Event{% endblock %}
 
 {% block body %}
-    <h1>Create new Event</h1>
+    <h1 style="text-align:center">Create new Event</h1>
 
     {{ include('admin_event/_form.html.twig') }}
 
-   <td> <button class="btn"> <a href="{{ path('app_admin_event_index') }}">back to list</a></button>
+   <td> <a style=" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;" href="{{ path('app_admin_event_index') }}">back to list</a>
     </td>
 </tr></div></table>
     </div>

@@ -17,7 +17,7 @@ return [
         '/admin/event' => [[['_route' => 'app_admin_event_index', '_controller' => 'App\\Controller\\AdminEventController::index'], null, ['GET' => 0], null, true, false, null]],
         '/admin/event/new' => [[['_route' => 'app_admin_event_new', '_controller' => 'App\\Controller\\AdminEventController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/admin/participant' => [[['_route' => 'app_admin_participant_index', '_controller' => 'App\\Controller\\AdminParticipantController::index'], null, ['GET' => 0], null, true, false, null]],
-        '/admin/participant/new' => [[['_route' => 'app_admin_participant_new', '_controller' => 'App\\Controller\\AdminParticipantController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/admin/participant/new' => [[['_route' => 'app_admin_participant_new', '_controller' => 'App\\Controller\\AdminParticipantController::new'], null, null, null, false, false, null]],
         '/event' => [
             [['_route' => 'event_index', '_controller' => 'App\\Controller\\EventController::index'], null, null, null, false, false, null],
             [['_route' => 'event', '_controller' => 'App\\Controller\\HomeController::event'], null, null, null, false, false, null],
@@ -49,25 +49,30 @@ return [
                         .'|/edit(*:46)'
                         .'|(*:53)'
                     .')'
-                    .'|participant/([^/]++)(?'
-                        .'|(*:84)'
-                        .'|/edit(*:96)'
-                        .'|(*:103)'
+                    .'|participant/(?'
+                        .'|event/([^/]++)/([^/]++)/add\\-participant(*:116)'
+                        .'|([^/]++)(?'
+                            .'|(*:135)'
+                            .'|/edit(*:148)'
+                            .'|(*:156)'
+                        .')'
+                        .'|participant/event([^/]++)(*:190)'
                     .')'
                 .')'
+                .'|/event/([^/]++)(*:215)'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:144)'
-                    .'|wdt/([^/]++)(*:164)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:254)'
+                    .'|wdt/([^/]++)(*:274)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:210)'
-                            .'|router(*:224)'
+                            .'|search/results(*:320)'
+                            .'|router(*:334)'
                             .'|exception(?'
-                                .'|(*:244)'
-                                .'|\\.css(*:257)'
+                                .'|(*:354)'
+                                .'|\\.css(*:367)'
                             .')'
                         .')'
-                        .'|(*:267)'
+                        .'|(*:377)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -76,16 +81,19 @@ return [
         34 => [[['_route' => 'app_admin_event_show', '_controller' => 'App\\Controller\\AdminEventController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         46 => [[['_route' => 'app_admin_event_edit', '_controller' => 'App\\Controller\\AdminEventController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         53 => [[['_route' => 'app_admin_event_delete', '_controller' => 'App\\Controller\\AdminEventController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        84 => [[['_route' => 'app_admin_participant_show', '_controller' => 'App\\Controller\\AdminParticipantController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        96 => [[['_route' => 'app_admin_participant_edit', '_controller' => 'App\\Controller\\AdminParticipantController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        103 => [[['_route' => 'app_admin_participant_delete', '_controller' => 'App\\Controller\\AdminParticipantController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        144 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        164 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        210 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        224 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        244 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        257 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        267 => [
+        116 => [[['_route' => 'event_add_participant', '_controller' => 'App\\Controller\\AdminParticipantController::addParticipantToEvent'], ['id', 'idu'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        135 => [[['_route' => 'app_admin_participant_show', '_controller' => 'App\\Controller\\AdminParticipantController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        148 => [[['_route' => 'app_admin_participant_edit', '_controller' => 'App\\Controller\\AdminParticipantController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        156 => [[['_route' => 'app_admin_participant_delete', '_controller' => 'App\\Controller\\AdminParticipantController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        190 => [[['_route' => 'app_admin_participant_index1', '_controller' => 'App\\Controller\\AdminParticipantController::eventpart'], ['ide'], ['GET' => 0], null, false, true, null]],
+        215 => [[['_route' => 'app_event_show', '_controller' => 'App\\Controller\\EventController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        254 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        274 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        320 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        334 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        354 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        367 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        377 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

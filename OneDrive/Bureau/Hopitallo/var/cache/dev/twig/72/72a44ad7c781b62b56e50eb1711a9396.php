@@ -85,9 +85,27 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Event index</h1>
-
-    <table class=\"table\">
+        echo "<div class=\"card shadow mb-4\">
+                        <div class=\"card-header py-3\">
+                            <h6 class=\"m-0 font-weight-bold text-primary\"  style=\"text-align:center\">Event index</h6>
+                        </div>
+                        <div class=\"card-body\">
+                            <div class=\"table-responsive\">
+    <div>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_new");
+        echo "\">Create new</a>
+    </br>
+    </br>
+    </div>
+    <table  class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -102,49 +120,71 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
         </thead>
         <tbody>
         ";
-        // line 22
+        // line 37
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 37, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["event"]) {
-            // line 23
+            // line 38
             echo "            <tr>
                 <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 24), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 39), "html", null, true);
             echo "</td>
                 <td>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "nomE", [], "any", false, false, false, 25), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "nomE", [], "any", false, false, false, 40), "html", null, true);
+            echo "</td>
+                <td><img style=\"width: 50px;\" src=\"";
+            // line 41
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/events/" . twig_get_attribute($this->env, $this->source, $context["event"], "photo", [], "any", false, false, false, 41))), "html", null, true);
+            echo "\" ></td>
+                <td>";
+            // line 42
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "localisation", [], "any", false, false, false, 42), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "photo", [], "any", false, false, false, 26), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "type", [], "any", false, false, false, 43), "html", null, true);
             echo "</td>
                 <td>";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "localisation", [], "any", false, false, false, 27), "html", null, true);
+            // line 44
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "description", [], "any", false, false, false, 44), "html", null, true);
             echo "</td>
                 <td>";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "type", [], "any", false, false, false, 28), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "description", [], "any", false, false, false, 29), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 30
-            ((twig_get_attribute($this->env, $this->source, $context["event"], "dateEvent", [], "any", false, false, false, 30)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "dateEvent", [], "any", false, false, false, 30), "Y-m-d"), "html", null, true))) : (print ("")));
+            // line 45
+            ((twig_get_attribute($this->env, $this->source, $context["event"], "dateEvent", [], "any", false, false, false, 45)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["event"], "dateEvent", [], "any", false, false, false, 45), "Y-m-d"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
-                    <a href=\"";
-            // line 32
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 32)]), "html", null, true);
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+            // line 53
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_index1", ["ide" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 53)]), "html", null, true);
+            echo "\">Participant</a>
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+            // line 60
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_show", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 60)]), "html", null, true);
             echo "\">show</a>
-                    <a href=\"";
-            // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+            // line 67
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["event"], "id", [], "any", false, false, false, 67)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -152,7 +192,7 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 37
+            // line 71
             echo "            <tr>
                 <td colspan=\"8\">no records found</td>
             </tr>
@@ -161,14 +201,12 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['event'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 75
         echo "        </tbody>
     </table>
+    </div></div>
 
-    <a href=\"";
-        // line 44
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_event_new");
-        echo "\">Create new</a>
+    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -190,7 +228,7 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
 
     public function getDebugInfo()
     {
-        return array (  170 => 44,  165 => 41,  156 => 37,  147 => 33,  143 => 32,  138 => 30,  134 => 29,  130 => 28,  126 => 27,  122 => 26,  118 => 25,  114 => 24,  111 => 23,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  205 => 75,  196 => 71,  187 => 67,  177 => 60,  167 => 53,  156 => 45,  152 => 44,  148 => 43,  144 => 42,  140 => 41,  136 => 40,  132 => 39,  129 => 38,  124 => 37,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,9 +238,24 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
-
-    <table class=\"table\">
+<div class=\"card shadow mb-4\">
+                        <div class=\"card-header py-3\">
+                            <h6 class=\"m-0 font-weight-bold text-primary\"  style=\"text-align:center\">Event index</h6>
+                        </div>
+                        <div class=\"card-body\">
+                            <div class=\"table-responsive\">
+    <div>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_event_new') }}\">Create new</a>
+    </br>
+    </br>
+    </div>
+    <table  class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">
         <thead>
             <tr>
                 <th>Id</th>
@@ -220,14 +273,33 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
             <tr>
                 <td>{{ event.id }}</td>
                 <td>{{ event.nomE }}</td>
-                <td>{{ event.photo }}</td>
+                <td><img style=\"width: 50px;\" src=\"{{ asset('uploads/events/'~event.photo) }}\" ></td>
                 <td>{{ event.localisation }}</td>
                 <td>{{ event.type }}</td>
                 <td>{{ event.description }}</td>
                 <td>{{ event.dateEvent ? event.dateEvent|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href=\"{{ path('app_admin_event_show', {'id': event.id}) }}\">show</a>
-                    <a href=\"{{ path('app_admin_event_edit', {'id': event.id}) }}\">edit</a>
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_participant_index1', {'ide': event.id}) }}\">Participant</a>
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_event_show', {'id': event.id}) }}\">show</a>
+                    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_event_edit', {'id': event.id}) }}\">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -237,8 +309,9 @@ class __TwigTemplate_e89329fe1a4f83b3ea9d376dbf25fbee extends Template
         {% endfor %}
         </tbody>
     </table>
+    </div></div>
 
-    <a href=\"{{ path('app_admin_event_new') }}\">Create new</a>
+    
 {% endblock %}
 ", "admin_event/index.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo\\templates\\admin_event\\index.html.twig");
     }

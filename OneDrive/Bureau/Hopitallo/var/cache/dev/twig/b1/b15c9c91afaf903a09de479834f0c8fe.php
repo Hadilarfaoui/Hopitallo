@@ -85,10 +85,29 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Participant index</h1>
-
-    <table class=\"table\">
-        <thead>
+        echo "<div class=\"card shadow mb-4\">
+                        <div class=\"card-header py-3\"  >
+                            <p class=\"m-0 font-weight-bold text-primary\" style=\"text-align:center\">Participant index</p>
+                        </div>
+                        <div class=\"card-body\">
+                            <div class=\"table-responsive\">
+    <div>
+     <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+        // line 19
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_new");
+        echo "\">Create new</a>
+    </br>
+    </br>
+    </div>
+    
+    <table  class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">
+       <thead>
             <tr>
                 <th>Id</th>
                 <th>CreatedAt</th>
@@ -99,45 +118,49 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
         </thead>
         <tbody>
         ";
-        // line 19
+        // line 35
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["participants"]) || array_key_exists("participants", $context) ? $context["participants"] : (function () { throw new RuntimeError('Variable "participants" does not exist.', 19, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["participants"]) || array_key_exists("participants", $context) ? $context["participants"] : (function () { throw new RuntimeError('Variable "participants" does not exist.', 35, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["participant"]) {
-            // line 20
+            // line 36
             echo "            <tr>
                 <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "id", [], "any", false, false, false, 21), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "id", [], "any", false, false, false, 37), "html", null, true);
             echo "</td>
                 <td>";
-            // line 22
-            ((twig_get_attribute($this->env, $this->source, $context["participant"], "createdAt", [], "any", false, false, false, 22)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "createdAt", [], "any", false, false, false, 22), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
+            // line 38
+            ((twig_get_attribute($this->env, $this->source, $context["participant"], "createdAt", [], "any", false, false, false, 38)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "createdAt", [], "any", false, false, false, 38), "Y-m-d H:i:s"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "user", [], "any", false, false, false, 23), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "user", [], "any", false, false, false, 39), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "event", [], "any", false, false, false, 24), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["participant"], "event", [], "any", false, false, false, 40), "html", null, true);
             echo "</td>
                 <td>
-                    <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_show", ["id" => twig_get_attribute($this->env, $this->source, $context["participant"], "id", [], "any", false, false, false, 26)]), "html", null, true);
+                     <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"";
+            // line 48
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_show", ["id" => twig_get_attribute($this->env, $this->source, $context["participant"], "id", [], "any", false, false, false, 48)]), "html", null, true);
             echo "\">show</a>
-                    <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["participant"], "id", [], "any", false, false, false, 27)]), "html", null, true);
-            echo "\">edit</a>
-                </td>
+                    ";
+            // line 50
+            echo " </td> 
             </tr>
         ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 31
+            // line 53
             echo "            <tr>
                 <td colspan=\"3\">no records found</td>
             </tr>
@@ -146,14 +169,11 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['participant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 57
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 38
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_admin_participant_new");
-        echo "\">Create new</a>
+    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -175,7 +195,7 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
 
     public function getDebugInfo()
     {
-        return array (  155 => 38,  150 => 35,  141 => 31,  132 => 27,  128 => 26,  123 => 24,  119 => 23,  115 => 22,  111 => 21,  108 => 20,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  173 => 57,  164 => 53,  157 => 50,  153 => 48,  142 => 40,  138 => 39,  134 => 38,  130 => 37,  127 => 36,  122 => 35,  103 => 19,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -185,10 +205,26 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
 {% block title %}Participant index{% endblock %}
 
 {% block body %}
-    <h1>Participant index</h1>
-
-    <table class=\"table\">
-        <thead>
+<div class=\"card shadow mb-4\">
+                        <div class=\"card-header py-3\"  >
+                            <p class=\"m-0 font-weight-bold text-primary\" style=\"text-align:center\">Participant index</p>
+                        </div>
+                        <div class=\"card-body\">
+                            <div class=\"table-responsive\">
+    <div>
+     <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_participant_new') }}\">Create new</a>
+    </br>
+    </br>
+    </div>
+    
+    <table  class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">
+       <thead>
             <tr>
                 <th>Id</th>
                 <th>CreatedAt</th>
@@ -205,9 +241,15 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
                 <td>{{ participant.user }}</td>
                 <td>{{ participant.event }}</td>
                 <td>
-                    <a href=\"{{ path('app_admin_participant_show', {'id': participant.id}) }}\">show</a>
-                    <a href=\"{{ path('app_admin_participant_edit', {'id': participant.id}) }}\">edit</a>
-                </td>
+                     <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\" href=\"{{ path('app_admin_participant_show', {'id': participant.id}) }}\">show</a>
+                    {# <button class=\"rounded-circle border-0\"> <a href=\"{{ path('app_admin_participant_edit', {'id': participant.id}) }}\">edit</a></button>
+               #} </td> 
             </tr>
         {% else %}
             <tr>
@@ -217,7 +259,7 @@ class __TwigTemplate_3cb068ca0c0613692ed1740f36aaed30 extends Template
         </tbody>
     </table>
 
-    <a href=\"{{ path('app_admin_participant_new') }}\">Create new</a>
+    
 {% endblock %}
 ", "admin_participant/index.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo\\templates\\admin_participant\\index.html.twig");
     }

@@ -76,8 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $urgence_gerer;
 
     public function __construct()
-    {
-        // $this->Demande_urgence = new ArrayCollection();
+    {   // $this->Demande_urgence = new ArrayCollection();
         // $this->gerer_demande = new ArrayCollection();
         $this->rdv_prendre = new ArrayCollection();
         $this->rdv_gerer = new ArrayCollection();

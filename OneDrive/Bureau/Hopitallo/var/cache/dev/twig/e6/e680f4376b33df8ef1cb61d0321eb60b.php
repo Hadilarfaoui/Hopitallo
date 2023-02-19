@@ -47,7 +47,13 @@ class __TwigTemplate_edeb4dee7d3888da4b88db5f9b91ee9a extends Template
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\">Delete</a>
 </form>
 ";
         
@@ -77,7 +83,13 @@ class __TwigTemplate_edeb4dee7d3888da4b88db5f9b91ee9a extends Template
     {
         return new Source("<form method=\"post\" action=\"{{ path('app_admin_event_delete', {'id': event.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ event.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <a style=\" display: inline-block;
+  padding: 10px 20px;
+  background-color: #4e73df;
+  color: white;
+  margin-top:15px;
+  text-decoration: none;
+  border-radius: 5px;\">Delete</a>
 </form>
 ", "admin_event/_delete_form.html.twig", "C:\\Users\\mouha\\OneDrive\\Bureau\\Hopitallo\\templates\\admin_event\\_delete_form.html.twig");
     }
