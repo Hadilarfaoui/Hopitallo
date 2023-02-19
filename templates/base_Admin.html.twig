@@ -35,9 +35,8 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-              
-                <div class="sidebar-brand-text mx-3">Espace Admin</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('app_admin_dashboard')}}">
+            <img style="width: 80%; background-color:white;" src="{{asset('./img/logo.png')}}" alt="">
             </a>
 
             <!-- Divider -->
@@ -45,10 +44,11 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{path('app_admin_dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -60,7 +60,32 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <li class="nav-item active">
+                <a class="nav-link" href="{{path('app_user_index')}}">
+                    <i class="fas fa fa-user"></i>
+                    <span>Gerer utilisateur</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{path('app_hopital_index')}}">
+                    <i class="fa fa-hospital"></i>
+                    <span>Gerer Hopitaux</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{path('service_admin')}}">
+                    <i class="fa fa-stethoscope"></i>
+                    <span>Gerer Services</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{path('event_admin')}}">
+                    <i class="fa fa-heart"></i>
+                    <span>Gerer Evenement</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{path('participant_admin')}}">
+                    <i class="fa fa-users"></i>
+                    <span>Gerer Participant</span></a>
+            </li>
+                <!--<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
@@ -75,7 +100,7 @@
                         <a class="collapse-item" href="{{path('participant_admin')}}">Gerer Participant</a>
                         
                     </div>
-                </div>
+                </div>-->
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->

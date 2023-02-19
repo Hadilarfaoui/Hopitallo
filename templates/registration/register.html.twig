@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     {% block stylesheet %}
-
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="{{asset('assets/css/registre.css')}}" rel="stylesheet">
     {% endblock %}
 </head>
@@ -62,7 +62,11 @@
 					<span class="button__text">Register</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>	
-        <a href="{{path('app_login')}}" class="nav-item nav-link">Connecter</a>
+                 <br>
+        <a href="{{path('app_login')}}" class="btn btn-link">Connecter</a>
+        <br>
+          
+          <a href="{{path('app_home')}}" class="btn btn-link">Go Home</a>	
     {{ form_end(registrationForm) }}
 	
 		</div>

@@ -1,19 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Hopitallo-Hopitaux{% endblock %} 
-  {% block nav %}  
+
+                {% block nav %}  
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
                       <a href="{{path('hopital')}}"  class="nav-item nav-link active">Hopitaux</a>
                       
-                        <a href="hopital_urgence.html" class="nav-item nav-link">Urgence</a>
+                      {% if app.user %}
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link">Urgence</a>
+                   {% else %}
                    
-                        <a href="event.html" class="nav-item nav-link">Evenement</a>
-                        <a href="profil.html" class="nav-item nav-link">Profil</a>
+                   {% endif %}
+                        <a href="{{path('event')}}" class="nav-item nav-link">Evenement</a>
+                        {% if app.user %}
+                        <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="{{path('app_logout')}}" class="nav-item nav-link">Deconnecter</a>
+                        {% else %}
+                        <a href="{{path('app_login')}}" class="nav-item nav-link">Connecter</a>
+                        <a href="{{path('app_register')}}" class="nav-item nav-link">S'inscrire</a>
+                        {% endif %}
+                 
                     </div>
                 </div>
                 {% endblock %}  
+         
+
   {% block body %}  
   <div class="container-fluid py-5">
         <div class="container">

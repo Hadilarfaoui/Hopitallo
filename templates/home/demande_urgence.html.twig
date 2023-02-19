@@ -2,19 +2,31 @@
 
 {% block title %} Hopitallo-Hopitaux{% endblock %} 
 
- {% block nav %}  
+
+                {% block nav %}  
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{{path('app_home')}}" class="nav-item nav-link ">Home</a>
-                        <a href="{{path('hopital')}}"  class="nav-item nav-link ">Hopitaux</a>
+                      <a href="{{path('hopital')}}"  class="nav-item nav-link">Hopitaux</a>
                       
-                        <a href="hopital_urgence.html" class="nav-item nav-link active">Urgence</a>
+                         {% if app.user %}
+                        <a href="{{path('hopital_urgence')}}" class="nav-item nav-link">Urgence</a>
+                   {% else %}
                    
-                        <a href="event.html" class="nav-item nav-link">Evenement</a>
-                        <a href="profil.html" class="nav-item nav-link">Profil</a>
+                   {% endif %}
+                        <a href="{{path('event')}}" class="nav-item nav-link">Evenement</a>
+                        {% if app.user %}
+                        <a href="{{path('profil')}}" class="nav-item nav-link">Profil</a>
+                        <a href="{{path('app_logout')}}" class="nav-item nav-link">Deconnecter</a>
+                        {% else %}
+                        <a href="{{path('app_login')}}" class="nav-item nav-link">Connecter</a>
+                        <a href="{{path('app_register')}}" class="nav-item nav-link">S'inscrire</a>
+                        {% endif %}
+                 
                     </div>
                 </div>
                 {% endblock %}  
+           
 
 
 {% block body %} 
@@ -34,10 +46,16 @@
             <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
                 <div class="col-lg-8">
                     <div class="bg-white rounded p-5 m-5 mb-0">
-                        <h3 style="color:green;">vous recevez une feuille d'urgence sur votre profil </h3>
+                     {% if app.user %}
+                                   <h3 style="color:green;">vous recevez une feuille d'urgence sur votre profil </h3>
+                                     {% else %}
+                               
+                                    {% endif%}
+                        
                         <form>
                             <div class="row g-3">
                              <h1>Hopital ariana</h1>
+                             
                                 <div class="col-12">
                                     <input type="text" class="form-control bg-light border-0" placeholder="votre Adresse" style="height: 55px;">
                                 </div>
@@ -45,7 +63,11 @@
                                     <textarea class="form-control bg-light border-0" rows="5" placeholder="Cas de l'urgence"></textarea>
                                 </div>
                                 <div class="col-12">
+                                {% if app.user %}
                                     <button class="btn btn-primary w-100 py-3" type="submit"><a href="">Demande</a></button>
+                                     {% else %}
+                                      <h3 style="color:red;">vous ne pouvez pas demander une urgence .</h3>
+                                    {% endif%}
                                 </div>
                             </div>
                         </form>

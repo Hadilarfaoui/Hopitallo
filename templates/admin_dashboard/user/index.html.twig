@@ -79,12 +79,15 @@
   color: white;
   text-decoration: none;
   border-radius: 5px;" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+  {% if user.roles[0] != "ROLE_USER" %}
                     <a style=" display: inline-block;
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;
+  margin-top:15px;
   text-decoration: none;
   border-radius: 5px;" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+   {% endif %}
                 </td>
             </tr>
              {% endif %}
@@ -180,6 +183,7 @@
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;
+  margin-top:15px;
   text-decoration: none;
   border-radius: 5px;" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
                 </td>
