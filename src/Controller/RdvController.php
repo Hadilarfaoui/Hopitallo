@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Rdv;
+use App\Entity\User;
 use App\Form\RdvType;
+use App\Form\editType;
 use App\Repository\RdvRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 #[Route('/rdv')]
 class RdvController extends AbstractController
@@ -21,17 +25,36 @@ class RdvController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_rdv_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, RdvRepository $rdvRepository): Response
+    #[Route('/{idm}/new', name: 'app_rdv_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, RdvRepository $rdvRepository)
     {
+        $patientId = 1;
+        $idm = $request->query->get('idm');
+       
+
+// Récupérez le gestionnaire d'entités de Doctrine
+$entityManager = $this->getDoctrine()->getManager();
+
+// Récupérez l'entité User correspondante à l'ID du médecin
+$patient = $entityManager->getRepository(User::class)->find($patientId);
+$medecin = $entityManager->getRepository(User::class)->find($idm);
+
         $rdv = new Rdv();
         $form = $this->createForm(RdvType::class, $rdv);
         $form->handleRequest($request);
+       
+      
+        
+        // Utilisez les méthodes setMedecinId() et setPatientId() pour définir les ID du médecin et du patient
+        $rdv->setMedecin($medecin);
+        $rdv->setPatient($patient);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $rdvRepository->save($rdv, true);
+            $this->addFlash('success','votre demande a été envoyer ');
 
-            return $this->redirectToRoute('app_rdv_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_rdv_new', ['idm'=> $request->query->get('idm')], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('rdv/new.html.twig', [
@@ -51,7 +74,7 @@ class RdvController extends AbstractController
     #[Route('/{id}/edit', name: 'app_rdv_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Rdv $rdv, RdvRepository $rdvRepository): Response
     {
-        $form = $this->createForm(RdvType::class, $rdv);
+        $form = $this->createForm(editType::class, $rdv); //badelt hetha baad mazedt editType
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

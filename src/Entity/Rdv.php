@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: RdvRepository::class)]
 class Rdv
@@ -17,15 +19,20 @@ class Rdv
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(min :4,max :30,minMessage : "Le titre doit faire au moins {{ limit }} caractères.",maxMessage : "Le titre doit faire au maximum {{ limit }} caractères.")   ]
     private ?string $titre = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message:"interval_time is required")]
     private ?string $intervele_time = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[Assert\GreaterThan("today", message:"La date doit être supérieure à la date actuelle")]
+    #[Assert\NotBlank(message:"date is required")]
     private ?\DateTimeInterface $date_rdv = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(max :100,maxMessage : "Le message doit faire au maximum {{ limit }} caractères.")   ]
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'rdv_prendre')]

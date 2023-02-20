@@ -9,15 +9,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 
-class RdvType extends AbstractType
+class editType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('titre')
-            ->add('intervele_time' , choiceType::class ,
-            ['required' => true , 'multiple' => false ,'expanded' => false,
-            'choices' =>['8h-11h'=>'8h-11h','11h-14h'=>'11h-14h', '14h-17h'=>'14h-17h']])
+            ->add('intervele_time')
             ->add('date_rdv')
             ->add('message')
            

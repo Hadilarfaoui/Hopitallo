@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\ConsultationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: ConsultationRepository::class)]
 class Consultation
@@ -15,9 +17,11 @@ class Consultation
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    #[Assert\NotBlank(message:"date is required")]
     private ?\DateTimeInterface $date_consultation = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(max :100,maxMessage : "Le diagnostique doit faire au maximum {{ limit }} caractères.")   ]
     private ?string $diagnostique = null;
 
     #[ORM\ManyToOne(inversedBy: 'consultations')]

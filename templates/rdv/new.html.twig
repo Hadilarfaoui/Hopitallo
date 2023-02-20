@@ -3,9 +3,14 @@
 {% block title %}New Rdv{% endblock %}
 
 {% block body %}
+<center>
+
     <h1>Create new Rdv</h1>
-
+<center>
     {{ include('rdv/_form.html.twig') }}
-
-    <a href="{{ path('app_rdv_index') }}">back to list</a>
+</center>
+<center>
+    <a class="btn btn-outline-primary rounded-pill py-3 px-5" href="{{ path('profil') }}">back to profil</a>
+    </center>
+    </center>
 {% endblock %}
