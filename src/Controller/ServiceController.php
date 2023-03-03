@@ -17,15 +17,8 @@ class ServiceController extends AbstractController
     #[Route('/', name: 'app_service_index', methods: ['GET'])]
     public function index(ServiceRepository $serviceRepository): Response
     {   
-        $repository = $this->getDoctrine()->getRepository(Service::class);
-
-        $query = $repository->createQueryBuilder('s')
-            ->join('s.hopital', 'h')
-            ->getQuery();
-
-            $result= $query->getResult();
         return $this->render('service/index.html.twig', [
-            'services' => $result , //$serviceRepository->findAll()
+            'services' => $serviceRepository->findAll()
         ]);
     }
 
@@ -41,7 +34,7 @@ class ServiceController extends AbstractController
 
             return $this->redirectToRoute('app_service_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        $this->addFlash('info', 'Service ajouté avec succès');
         return $this->renderForm('service/new.html.twig', [
             'service' => $service,
             'form' => $form,
@@ -67,7 +60,7 @@ class ServiceController extends AbstractController
 
             return $this->redirectToRoute('app_service_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        $this->addFlash('info', 'Service ajouté avec succès');
         return $this->renderForm('service/edit.html.twig', [
             'service' => $service,
             'form' => $form,
@@ -80,7 +73,7 @@ class ServiceController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$service->getId(), $request->request->get('_token'))) {
             $serviceRepository->remove($service, true);
         }
-
+        $this->addFlash('info', 'Service ajouté avec succès');
         return $this->redirectToRoute('app_service_index', [], Response::HTTP_SEE_OTHER);
     }
 }

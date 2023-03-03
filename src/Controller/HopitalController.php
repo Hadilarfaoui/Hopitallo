@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 
 
 
@@ -55,7 +56,7 @@ class HopitalController extends AbstractController
 
             return $this->redirectToRoute('app_hopital_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        $this->addFlash('info', 'Hôpital ajouté avec succès');
         return $this->renderForm('hopital/new.html.twig', [
             'hopital' => $hopital,
             'form' => $form,
@@ -99,7 +100,7 @@ class HopitalController extends AbstractController
 
             return $this->redirectToRoute('app_hopital_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        $this->addFlash('info', 'Hôpital modifié avec succès');
         return $this->renderForm('hopital/edit.html.twig', [
             'hopital' => $hopital,
             'form' => $form,
@@ -112,7 +113,7 @@ class HopitalController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$hopital->getId(), $request->request->get('_token'))) {
             $hopitalRepository->remove($hopital, true);
         }
-
+        $this->addFlash('info', 'Hôpital supprimé avec succès');
         return $this->redirectToRoute('app_hopital_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -49,8 +49,8 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5">
+            {% for user in service.medecins %}
                 <div class="col-lg-6 team-item">
-                    {% for user in service.medecins %}
                      <div class="row g-0 bg-light rounded overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
                             <img class="img-fluid h-100" src="{{ asset('uploads/hopitaux/'~user.photo) }}" style="object-fit: cover;">
@@ -67,11 +67,9 @@
                             </div>
                         </div>
                      </div>
-                    {% endfor %}
                 </div> 
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary py-3 px-5">Load More</button>
-                </div>
+            {% endfor %}
+                
             </div>
         </div>
     </div>

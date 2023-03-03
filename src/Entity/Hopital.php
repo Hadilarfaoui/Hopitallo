@@ -44,6 +44,9 @@ class Hopital
     #[ORM\OneToMany(mappedBy: 'hopital', targetEntity: DemandeUrgence::class)]
     private Collection $urgences;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $note = null;
+
 
     public function __construct()
     {
@@ -179,5 +182,17 @@ class Hopital
     public function __toString(){
         //return  (string) var_dump( $this->getRoles()); // Remplacer champ par une propriété "string" de l'entité
         return (string) $this->getNomh();
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): self
+    {
+        $this->note = $note;
+
+        return $this;
     }
 }

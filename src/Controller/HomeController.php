@@ -10,7 +10,8 @@ use App\Repository\HopitalRepository;
 use App\Entity\Service;
 use App\Repository\ServiceRepository;
 use App\Repository\UserRepository;
-
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
@@ -29,10 +30,27 @@ class HomeController extends AbstractController
     }
 
     #[Route('/hopitalC', name: 'hopital')]
-    public function hopital(HopitalRepository $hopitalRepository): Response
-    {
+    public function hopital(HopitalRepository $hopitalRepository,Request $request): Response
+    {   
+        $criteria = [];
+
+        if ($request->query->get('type_conference')) {
+            $criteria['type_conference'] = true;
+        }
+
+        if ($request->query->get('type_workshop')) {
+            $criteria['type_workshop'] = true;
+        }
+       
+        if ($request->query->get('filter_by_adresse')) {
+            $adresseh = $request->query->get('filter_by_adresse');
+            $criteria['filter_by_adresse'] = $adresseh;
+        }
+
+        $hopitals = $hopitalRepository->findFiltered($criteria);
+
         return $this->render('home/hopital.html.twig',[            
-            'hopitals' => $hopitalRepository->findAll(),
+            'hopitals' => $hopitals,
     ]);
     }
 
@@ -79,5 +97,29 @@ class HomeController extends AbstractController
     public function profil(): Response
     {
         return $this->render('home/profil.html.twig');
+    }
+
+    #[Route('/star/{id}', name: 'star')]
+    public function yourAction(Request $request,$id,ManagerRegistry $doctrine)
+    {
+        if ($request->isXmlHttpRequest()) {
+            // handle the AJAX request
+            $data = $request->getContent(); // retrieve the data sent by the client-side JavaScript code
+            $repository = $doctrine->getRepository(Hopital::class);
+            $produits = $repository->find($id);
+            if($produits->getNote()==0)
+                $produits->setNote(5);
+            else
+                $produits->setNote(($produits->getNote()+$data[6])/2);//modifier la note du produit
+            $em=$doctrine->getManager();
+            $em->persist($produits);
+            $em->flush();
+            $prod = $repository->find($id);
+            $test=$prod->getNote();
+            $response = new Response();//nouvelle instance du response pour la renvoyer a la fonction ajax
+            $response->setContent(json_encode($test));//encoder les donnes sous forme JSON et les attribuer a la variable response
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;//envoie du response
+        } 
     }
 }

@@ -38,6 +38,28 @@ class HopitalRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function findFiltered(array $criteria = [])
+    {
+        $qb = $this->createQueryBuilder('e');
+
+        
+
+        if (isset($criteria['type_conference'])) {
+            $qb->andWhere('e.typeh = :type_conference')
+                ->setParameter('type_conference', 'Hôpital Privé');
+        }
+
+        if (isset($criteria['type_workshop'])) {
+            $qb->andWhere('e.typeh = :type_workshop')
+                ->setParameter('type_workshop', 'Hôpital Publique');
+        }
+
+        if (isset($criteria['filter_by_adresse'])) {
+            $qb->andWhere('e.adresseh = :filter_by_adresse')
+                ->setParameter('filter_by_adresse',$criteria['filter_by_adresse']);
+        }
+        return $qb->getQuery()->getResult();
+    }
 
 //    /**
 //     * @return Hopital[] Returns an array of Hopital objects

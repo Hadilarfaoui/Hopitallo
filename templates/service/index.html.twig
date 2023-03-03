@@ -7,10 +7,15 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"  style="text-align:center">Liste des services</h6>
                         </div>
+                        {% for service in app.flashes('info') %}
+                        <div class="alert alert-success">
+                            {{ service }}
+                        </div>
+                        {% endfor %}
                         <div class="card-body">
                             <div class="table-responsive">
     <div>
-    <a style=" display: inline-block;
+   <a style=" display: inline-block;
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;
@@ -36,7 +41,7 @@
                 <td>{{ service.nomService }}</td>
                 <td>{{ service.hopital }}</td>
                 <td>
-                    <a style=" display: inline-block;
+                   <a style=" display: inline-block;
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;

@@ -7,31 +7,31 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"  style="text-align:center">Plus de détails</h6>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-    <div>
-    </br>
-    </br>
-    </div>
-<table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> 
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ service.id }}</td>
-                <th>Hopital</th>
-            </tr>
-            <tr>
-                <th>Nom_service</th>
-                <td>{{ service.nomService }}</td>
-                <td>{{ service.hopital }}</td>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div>
+                </br>
+                 </br>
+            
+                <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> 
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ service.id }}</td>
+                            <th>Hopital</th>
+                        </tr>
+                        <tr>
+                            <th>Nom_service</th>
+                            <td>{{ service.nomService }}</td>
+                            <td>{{ service.hopital }}</td>
 
-            </tr>
-        </tbody>
-    </table>
+                        </tr>
+                    </tbody>
+                </table>
     </div>
-</div>
+ </div>
 
-<a style=" display: inline-block;
+ <a style=" display: inline-block;
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;
@@ -39,7 +39,7 @@
   text-decoration: none;
   border-radius: 5px;" href="{{ path('app_service_index') }}">Back to list</a>
 
-<a style=" display: inline-block;
+ <a style=" display: inline-block;
   padding: 10px 20px;
   background-color: #4e73df;
   color: white;
@@ -48,4 +48,5 @@
   border-radius: 5px;" href="{{ path('app_service_edit', {'id': service.id}) }}">Edit</a>
 
     {{ include('service/_delete_form.html.twig') }}
+</div>
 {% endblock %}

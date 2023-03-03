@@ -18,20 +18,101 @@
                 </div>
                 {% endblock %} 
 {% block body %} 
+<script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+<style>
+            #stars
+            {
+                width:200px;
+                height:200px;
+                margin:50px auto;   
+            }
+            lt
+            {
+                display:inline-block;
+                {# font-size:20px; #}
+                padding:1px;
+                color:#ccc;
+            }
+            .hovered-stars
+            {
+                color:#FFCC36;
+            }
+            .clicked-stars
+            {
+                color:sandybrown;
+            }
+</style>
+
+<script>
+var data;
+    $(document).ready(function(){
+        $("lt").mouseover(function(){
+            var current = $(this);
+            $("lt").each(function(index){
+                $(this).addClass("hovered-stars");
+                if(index == current.index())
+                {
+                    return false;
+                }
+            })
+        })
+        $("lt").mouseleave(function(){
+            $("lt").removeClass("hovered-stars");
+        });
+        $("lt i").click(function(){
+            $("lt").removeClass("clicked-stars");
+            $(".hovered-stars").addClass("clicked-stars");
+            var val=$(".clicked-stars").length;
+            
+            console.log(val);
+            
+        
+        $.ajax({
+            type: "POST",
+            url: "{{path('star',{id:hopital.id})}}",
+            data: {value:val},
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(jqXHR, status, error) {
+            console.log(error);
+            
+        }
+        });
+        
+        });
+    
+    })
+</script>
  <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-8">
                 <!-- Blog Detail Start -->
                 <div class="mb-5">
-                    <img class="img-fluid w-100 rounded mb-5" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt="">
+                    <img class="img-fluid w-100 rounded mb-5" style="width: 400px;height: 500px;" src="{{ asset('uploads/hopitaux/'~hopital.image) }}" alt="">
                     <div class="bg-light rounded text-center" style="padding: 30px;">
                         <p><h1 class="mb-4">
                         <h1>{{ hopital.nomh }} </h1>
                         <p><i class="fas fa-map-marker-alt"></i> {{ hopital.adresseh }}</p>
                         <p><i class="fas fa-phone fa-flip-horizontal"></i> {{ hopital.numeroh }}</p>
                         <p><i class="fas fa-hospital"></i> {{ hopital.typeh }}</p>
+                        <div id="stars">
+                            <ul>
+                                <lt><i value="1" class="fa fa-star fa-fw"></i></lt>
+                                <lt><i value="2" class="fa fa-star fa-fw"></i></lt>
+                                <lt><i value="3" class="fa fa-star fa-fw"></i></lt>
+                                <lt><i value="4" class="fa fa-star fa-fw"></i></lt>
+                                <lt><i value="5" class="fa fa-star fa-fw"></i></lt>
+                                <div id="msg">{{hopital.note | number_format(2) }}/5</div>
+                            </ul>
+                        </div>
                     </h1></p>
                     </div>
+                    
                     
                 
                 </div>
